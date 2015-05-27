@@ -1,0 +1,235 @@
+
+            /|      /|                        \   
+           / |     / | ________________________\  
+          /  |    /  |  _   _             _   _   
+         /   |   /   | / \ / \ |\     /| / \ / \  
+        /    |  /    | \_/ \_  | \   / | \_/ |_/  
+       /     | /     | /     \ |  \ /  | /   | \  
+    \_/      |/      | \_/ \_/ |   V   | \_/ |  \ 
+
+     Mesmer: Master Equation Solver for Multi-Energy well Reactions
+     Mesmer v4.0 compiled: -- May  6 2015 -- 18:15:22
+
+     Copyright (C) 2009-2015 by
+     Struan H. Robertson, David R. Glowacki, Chi-Hsiu Liang,
+     Chris Morley, Michael J. Pilling and contributors
+
+     Mesmer is free software: you can redistribute it and/or modify
+     it under the terms of the GNU Public License as published by
+     the Free Software Foundation, either version 2 of the License,
+     or (at your option) any later version.
+
+     But WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU Public License for more details.
+
+    You should have received a copy of the GNU Public License
+    along with Mesmer.  If not, see <http://www.gnu.org/licenses/>.
+
+defaults.xml, librarymols.xml are in ../..
+
+Parsing input xml file...
+Chebyshev.xml
+
+In R1: Parsing reaction...Association reaction
+In CH3OCH2: The default value of me:DOSCMethod was used.
+In CH3OCH2: Hindered rotor b5
+In CH3OCH2: Hindered rotor b4
+In IM1: Hindered rotor b5
+In IM1: Hindered rotor b4
+In IM1: Hindered rotor b8
+In IM1: The default value of me:DistributionCalcMethod was used.
+In R1: The default value of me:TInfinity was used.
+In R1: No tunneling method used for R1
+In R1: No crossing method used for R1
+In R1: Not a unimolecular reaction: look for excess reactant concentration.
+In R2: Parsing reaction...Isomerization reaction
+In IM2: Hindered rotor b1
+In IM2: Hindered rotor b2
+In IM2: Hindered rotor b3
+In IM2: Hindered rotor b4
+In IM2: The default value of me:DistributionCalcMethod was used.
+In R2: No crossing method used for R2
+In R3: Parsing reaction...Irreversible unimolecular reaction
+In CH2O: Could not find CH2O in ../../librarymols.xml
+In TS5: The default value of me:DOSCMethod was used.
+In TS5: Hindered rotor b1
+In TS5: Hindered rotor b2
+In TS5: Hindered rotor b3
+In R3: No tunneling method used for R3
+In R3: No crossing method used for R3
+In R4: Parsing reaction...Irreversible unimolecular reaction
+In R4: No tunneling method used for R4
+In R4: No crossing method used for R4
+In R5: Parsing reaction...Irreversible unimolecular reaction
+In cycCH2OCH2O: Could not find cycCH2OCH2O in ../../librarymols.xml
+In R5: No tunneling method used for R5
+In R5: No crossing method used for R5
+No pressure and temperature specified.
+Write metadata 20150506_195717
+
+File: "Chebyshev.xml" successfully parsed.
+Main Calculation begins
+Execute calcMethod analyticalRepresentation
+
+Bath gas is He
+In FastLaplaceConvolution: 740 values in the FFT convolution routine were replaced by standard convolution
+Association ILT calculation completed
+In FastLaplaceConvolution: 3920 values in the FFT convolution routine were replaced by standard convolution
+units(length = 'cm', quantity = 'molecule')
+
+chebyshev_reaction('CH3OCH2 + O2 => IM1',
+                   Tmin=   200, Tmax=  1000,
+                   Pmin=(1e+017, 'PPCC'), Pmax=(1e+020, 'PPCC'), 
+                   coeffs=[[      -12.0138,       1.10385,     -0.360043,     0.0813636],
+                           [       1.10794,      -0.65294,     0.0124163,     0.0505902],
+                           [     -0.415232,       0.12971,     0.0886988,    -0.0385179],
+                           [      0.138217,     0.0511324,    -0.0800175,     0.0260946],
+                           [    -0.0300424,    -0.0765278,     0.0498227,    -0.0176572],
+                           [   -0.00166172,     0.0520736,    -0.0244753,     0.0101991]])
+
+chebyshev_reaction('CH3OCH2 + O2 => IM2',
+                   Tmin=   200, Tmax=  1000,
+                   Pmin=(1e+017, 'PPCC'), Pmax=(1e+020, 'PPCC'), 
+                   coeffs=[[      -13.3365,      0.908232,     -0.525128,    0.00477495],
+                           [      0.708746,     -0.358484,     -0.186152,     0.0567943],
+                           [     -0.425268,      0.256931,    -0.0330536,     0.0218344],
+                           [      0.259109,      -0.16444,     0.0249115,     0.0077721],
+                           [    -0.0981698,     0.0128368,     0.0438129,    -0.0232959],
+                           [     0.0317646,     0.0216866,      -0.03148,   -0.00424983]])
+
+chebyshev_reaction('CH3OCH2 + O2 => OH-1 + CH2O + CH2O',
+                   Tmin=   200, Tmax=  1000,
+                   Pmin=(1e+017, 'PPCC'), Pmax=(1e+020, 'PPCC'), 
+                   coeffs=[[      -12.0035,     -0.940902,     -0.263274,   -0.00427809],
+                           [     0.0159165,     -0.768327,     -0.151618,     0.0212983],
+                           [     -0.159014,      0.133531,      0.060006,     0.0026474],
+                           [      0.104941,    0.00558416,    -0.0130629,   -0.00504818],
+                           [    -0.0448526,    -0.0158646,  -0.000240602,    0.00302265],
+                           [     0.0152782,    0.00824946,    0.00197597,   -0.00108444]])
+
+chebyshev_reaction('CH3OCH2 + O2 => OH-2 + CH2O + CH2O',
+                   Tmin=   200, Tmax=  1000,
+                   Pmin=(1e+017, 'PPCC'), Pmax=(1e+020, 'PPCC'), 
+                   coeffs=[[      -17.3313,     -0.754531,     -0.207391,    -0.0134406],
+                           [      -1.15999,     -0.710425,     -0.153675,    0.00624351],
+                           [    -0.0241824,     0.0684283,      0.046193,    0.00845449],
+                           [     0.0561875,     0.0246907,   -0.00336158,   -0.00567992],
+                           [    -0.0221415,    -0.0171739,   -0.00464131,    0.00149179],
+                           [    0.00541566,    0.00619419,    0.00323536,   0.000332643]])
+
+chebyshev_reaction('CH3OCH2 + O2 => OH-3 + cycCH2OCH2O',
+                   Tmin=   200, Tmax=  1000,
+                   Pmin=(1e+017, 'PPCC'), Pmax=(1e+020, 'PPCC'), 
+                   coeffs=[[      -18.0175,     -0.717852,     -0.205866,    -0.0148279],
+                           [      -1.30565,     -0.676439,     -0.155315,    0.00476238],
+                           [    -0.0336602,     0.0663269,     0.0446965,    0.00894706],
+                           [     0.0543311,     0.0242683,   -0.00256647,   -0.00562686],
+                           [    -0.0213952,    -0.0168094,   -0.00483179,    0.00128582],
+                           [    0.00525957,    0.00594086,     0.0031895,   0.000428549]])
+
+chebyshev_reaction('IM1 => CH3OCH2 + O2',
+                   Tmin=   200, Tmax=  1000,
+                   Pmin=(1e+017, 'PPCC'), Pmax=(1e+020, 'PPCC'), 
+                   coeffs=[[      -8.47365,       1.10385,     -0.360043,     0.0813636],
+                           [      -14.1833,      -0.65294,     0.0124163,     0.0505902],
+                           [      -0.46003,       0.12971,     0.0886988,    -0.0385179],
+                           [      0.165951,     0.0511324,    -0.0800175,     0.0260946],
+                           [    -0.0409574,    -0.0765278,     0.0498227,    -0.0176572],
+                           [    0.00157641,     0.0520736,    -0.0244753,     0.0101991]])
+
+chebyshev_reaction('IM1 => IM2',
+                   Tmin=   200, Tmax=  1000,
+                   Pmin=(1e+017, 'PPCC'), Pmax=(1e+020, 'PPCC'), 
+                   coeffs=[[     -0.238115,      0.371859,    -0.0935705,    0.00182938],
+                           [      -5.80873,     -0.539728,      0.108257,     0.0124949],
+                           [   -0.00108009,      0.244299,    -0.0175542,    -0.0182349],
+                           [      0.108309,    -0.0626225,    -0.0220104,     0.0116768],
+                           [    -0.0560692,    -0.0134993,     0.0299247,   -0.00355329],
+                           [     0.0108287,     0.0337285,    -0.0249327,   -0.00246703]])
+
+chebyshev_reaction('IM1 => OH-1 + CH2O + CH2O',
+                   Tmin=   200, Tmax=  1000,
+                   Pmin=(1e+017, 'PPCC'), Pmax=(1e+020, 'PPCC'), 
+                   coeffs=[[      -5.07687,     -0.203267,     -0.239252,   -0.00140208],
+                           [      -11.4694,     -0.787845,    -0.0441867,     0.0167048],
+                           [     -0.364966,       0.22599,     0.0454661,   -0.00144827],
+                           [      0.220345,    -0.0121057,    -0.0259143,    0.00897102],
+                           [    -0.0793195,    -0.0156104,    0.00324236,   0.000455796],
+                           [      0.023701,   -0.00437822,     0.0179458,     -0.014252]])
+
+chebyshev_reaction('IM1 => OH-2 + CH2O + CH2O',
+                   Tmin=   200, Tmax=  1000,
+                   Pmin=(1e+017, 'PPCC'), Pmax=(1e+020, 'PPCC'), 
+                   coeffs=[[      -13.6692,       1.32419,      -0.39914,      0.080821],
+                           [      -14.4315,     -0.702137,    -0.0133593,      0.123938],
+                           [     -0.472017,     0.0649791,      0.213348,   -0.00607485],
+                           [      0.230395,     0.0572973,    -0.0429064,     0.0895708],
+                           [    0.00108342,     -0.119241,     0.0917584,    -0.0154436],
+                           [     0.0265326,     0.0123224,   0.000698081,   -0.00329282]])
+
+chebyshev_reaction('IM1 => OH-3 + cycCH2OCH2O',
+                   Tmin=   200, Tmax=  1000,
+                   Pmin=(1e+017, 'PPCC'), Pmax=(1e+020, 'PPCC'), 
+                   coeffs=[[       -14.554,       1.50007,     -0.409356,     0.0997669],
+                           [      -14.6015,      -0.63924,    0.00148681,      0.157558],
+                           [     -0.360574,     0.0101973,      0.275389,     -0.018622],
+                           [      0.316444,     0.0690448,    -0.0400194,     0.0882035],
+                           [      0.103009,     -0.167867,      0.124315,     -0.043928],
+                           [     0.0811657,     0.0117945,   -0.00530648,    -0.0167017]])
+
+chebyshev_reaction('IM2 => CH3OCH2 + O2',
+                   Tmin=   200, Tmax=  1000,
+                   Pmin=(1e+017, 'PPCC'), Pmax=(1e+020, 'PPCC'), 
+                   coeffs=[[      -3.75669,      0.908232,     -0.525128,    0.00477495],
+                           [      -9.88357,     -0.358484,     -0.186152,     0.0567943],
+                           [     -0.605378,      0.256931,    -0.0330536,     0.0218344],
+                           [      0.315381,      -0.16444,     0.0249115,     0.0077721],
+                           [     -0.113884,     0.0128368,     0.0438129,    -0.0232959],
+                           [      0.035675,     0.0216866,      -0.03148,   -0.00424983]])
+
+chebyshev_reaction('IM2 => IM1',
+                   Tmin=   200, Tmax=  1000,
+                   Pmin=(1e+017, 'PPCC'), Pmax=(1e+020, 'PPCC'), 
+                   coeffs=[[       5.80154,      0.371859,    -0.0935705,    0.00182938],
+                           [      -1.10979,     -0.539728,      0.108257,     0.0124949],
+                           [     -0.136392,      0.244299,    -0.0175542,    -0.0182349],
+                           [      0.136847,    -0.0626225,    -0.0220104,     0.0116768],
+                           [    -0.0608687,    -0.0134993,     0.0299247,   -0.00355329],
+                           [      0.011501,     0.0337285,    -0.0249327,   -0.00246703]])
+
+chebyshev_reaction('IM2 => OH-1 + CH2O + CH2O',
+                   Tmin=   200, Tmax=  1000,
+                   Pmin=(1e+017, 'PPCC'), Pmax=(1e+020, 'PPCC'), 
+                   coeffs=[[      0.768382,       1.03653,      -0.12459,    -0.0854376],
+                           [      -6.92163,      0.109954,     -0.242866,    -0.0282481],
+                           [     -0.341273,     0.0293132,    -0.0624864,      0.102347],
+                           [      0.261426,     -0.152947,      0.131065,    -0.0553472],
+                           [     -0.129048,      0.089933,    -0.0326961,    -0.0156261],
+                           [     0.0125726,      0.036691,    -0.0755744,     0.0613298]])
+
+chebyshev_reaction('IM2 => OH-2 + CH2O + CH2O',
+                   Tmin=   200, Tmax=  1000,
+                   Pmin=(1e+017, 'PPCC'), Pmax=(1e+020, 'PPCC'), 
+                   coeffs=[[       -8.1872,       2.27167,     -0.219474,     0.0308724],
+                           [       -10.069,      0.098339,    -0.0309808,    -0.0811645],
+                           [     -0.560815,     0.0141524,     -0.164115,     0.0706142],
+                           [      0.265386,     -0.132975,      0.119491,   -0.00916059],
+                           [     -0.115028,     0.0830979,  -0.000391294,    -0.0409204],
+                           [     0.0176556,     0.0203758,    -0.0825382,     0.0592145]])
+
+chebyshev_reaction('IM2 => OH-3 + cycCH2OCH2O',
+                   Tmin=   200, Tmax=  1000,
+                   Pmin=(1e+017, 'PPCC'), Pmax=(1e+020, 'PPCC'), 
+                   coeffs=[[      -9.14704,       2.41113,     -0.233272,      0.044696],
+                           [       -10.334,      0.120604,   -0.00771186,     -0.073344],
+                           [     -0.594067,     0.0459801,     -0.191792,     0.0824027],
+                           [      0.248857,     -0.101147,     0.0896745,     0.0139122],
+                           [     -0.102895,     0.0635259,     0.0165779,    -0.0532274],
+                           [      0.027871,  -0.000595818,    -0.0654352,     0.0476021]])
+
+
+Energy convention "arbitrary" written to <moleculeList>
+ -- Total time elapsed: 447 seconds.
+
+System saved to mesmer_out.xml

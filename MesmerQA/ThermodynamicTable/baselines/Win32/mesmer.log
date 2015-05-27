@@ -1,0 +1,65 @@
+
+            /|      /|                        \   
+           / |     / | ________________________\  
+          /  |    /  |  _   _             _   _   
+         /   |   /   | / \ / \ |\     /| / \ / \  
+        /    |  /    | \_/ \_  | \   / | \_/ |_/  
+       /     | /     | /     \ |  \ /  | /   | \  
+    \_/      |/      | \_/ \_/ |   V   | \_/ |  \ 
+
+     Mesmer: Master Equation Solver for Multi-Energy well Reactions
+     Mesmer v4.0 compiled: -- May  6 2015 -- 18:15:22
+
+     Copyright (C) 2009-2015 by
+     Struan H. Robertson, David R. Glowacki, Chi-Hsiu Liang,
+     Chris Morley, Michael J. Pilling and contributors
+
+     Mesmer is free software: you can redistribute it and/or modify
+     it under the terms of the GNU Public License as published by
+     the Free Software Foundation, either version 2 of the License,
+     or (at your option) any later version.
+
+     But WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU Public License for more details.
+
+    You should have received a copy of the GNU Public License
+    along with Mesmer.  If not, see <http://www.gnu.org/licenses/>.
+
+defaults.xml, librarymols.xml are in ../..
+
+Parsing input xml file...
+ThermodynamicTable.xml
+
+In HNO2: The default value of the attribute spinMultiplicity was used.
+In HNO2: The default value of me:DOSCMethod was used.
+In HNO2: The default attribute(s) were added to the the property me:Hf0
+In HNO2: The energy convention is thermodynamic, derived from me:Hf0
+In HNO2: New me:ZPE element written with data from me:Hf0
+In OH: energy converted from thermodynamic298K to thermodynamic
+In OH: New me:ZPE element written with data from me:Hf298
+In NO: The default value of me:DOSCMethod was used.
+In NO: energy converted from thermodynamic298K to thermodynamic
+In NO: New me:ZPE element written with data from me:Hf298
+In He: The default value of the attribute spinMultiplicity was used.
+In He: The default value of me:DOSCMethod was used.
+In He: gDensityOfStates initialization failed.
+Write metadata 20150506_181718
+
+File: "ThermodynamicTable.xml" successfully parsed.
+Main Calculation begins
+Execute calcMethod ThermodynamicTable
+In HNO2: enthalpy of formation at 298K:energy converted from thermodynamic to thermodynamic298K
+Restricted thermo output for He because it has no non-arbitrary energy data.
+In NO: enthalpy of formation at 298K:energy converted from thermodynamic to thermodynamic298K
+In OH: enthalpy of formation at 298K:Number of grains produced is not equal to that requested
+In OH: Number of grains requested: 1000
+In OH: Number of grains produced : 576
+In OH: energy converted from thermodynamic to thermodynamic298K
+Number of grains produced is not equal to that requested
+Number of grains requested: 1000
+Number of grains produced : 576
+Energy convention "thermodynamic" written to <moleculeList>
+ -- Total time elapsed: 1 seconds.
+
+System saved to out.xml

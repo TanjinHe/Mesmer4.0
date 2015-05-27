@@ -1,0 +1,75 @@
+
+            /|      /|                        \   
+           / |     / | ________________________\  
+          /  |    /  |  _   _             _   _   
+         /   |   /   | / \ / \ |\     /| / \ / \  
+        /    |  /    | \_/ \_  | \   / | \_/ |_/  
+       /     | /     | /     \ |  \ /  | /   | \  
+    \_/      |/      | \_/ \_/ |   V   | \_/ |  \ 
+
+     Mesmer: Master Equation Solver for Multi-Energy well Reactions
+     Mesmer v4.0 compiled: -- May 27 2015 -- 20:23:32
+
+     Copyright (C) 2009-2015 by
+     Struan H. Robertson, David R. Glowacki, Chi-Hsiu Liang,
+     Chris Morley, Michael J. Pilling and contributors
+
+     Mesmer is free software: you can redistribute it and/or modify
+     it under the terms of the GNU Public License as published by
+     the Free Software Foundation, either version 2 of the License,
+     or (at your option) any later version.
+
+     But WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU Public License for more details.
+
+    You should have received a copy of the GNU Public License
+    along with Mesmer.  If not, see <http://www.gnu.org/licenses/>.
+
+defaults.xml, librarymols.xml are in D:\hetanjin\professionalSoftware\Mesmer-3.0
+
+Parsing input xml file...
+TS_2_2d.xml
+
+The default value of me:calcMethod was used.
+In R1: Parsing reaction...Isomerization reaction
+In RO2_2: The default value of me:DOSCMethod was used.
+In RO2_2: Hindered rotor b28
+In RO2_2: Hindered rotor b4
+In RO2_2: Hindered rotor b8
+In RO2_2: Hindered rotor b7
+In RO2_2: Hindered rotor b11
+In RO2_2: Hindered rotor b14
+In RO2_2: Hindered rotor b16
+In RO2_2: Hindered rotor b17
+In RO2_2: Hindered rotor b24
+In RO2_2: The default value of me:DistributionCalcMethod was used.
+In QOOH_2d: The default value of me:DOSCMethod was used.
+In QOOH_2d: Hindered rotor b27
+In QOOH_2d: Hindered rotor b4
+In QOOH_2d: Hindered rotor b8
+In QOOH_2d: Hindered rotor b7
+In QOOH_2d: Hindered rotor b10
+In QOOH_2d: Hindered rotor b13
+In QOOH_2d: Hindered rotor b15
+In QOOH_2d: Hindered rotor b16
+In QOOH_2d: Hindered rotor b23
+In QOOH_2d: Hindered rotor b28
+In QOOH_2d: The default value of me:DistributionCalcMethod was used.
+In TS_2_2d: The default value of me:DOSCMethod was used.
+In TS_2_2d: Hindered rotor b25
+In TS_2_2d: Hindered rotor b11
+In TS_2_2d: Hindered rotor b15
+In TS_2_2d: Hindered rotor b18
+In TS_2_2d: Hindered rotor b17
+In TS_2_2d: Hindered rotor b4
+In R1: No crossing method used for R1
+The default value of the attribute precision was used.
+20atm, 298.15K at d precision with He
+Write metadata 20150527_223619
+
+File: "TS_2_2d.xml" successfully parsed.
+Main Calculation begins
+Execute calcMethod simpleCalc
+PT Grid 0
+Number of cells = 11600, Number of grains = 116

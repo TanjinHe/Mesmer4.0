@@ -1,0 +1,79 @@
+
+            /|      /|                        \   
+           / |     / | ________________________\  
+          /  |    /  |  _   _             _   _   
+         /   |   /   | / \ / \ |\     /| / \ / \  
+        /    |  /    | \_/ \_  | \   / | \_/ |_/  
+       /     | /     | /     \ |  \ /  | /   | \  
+    \_/      |/      | \_/ \_/ |   V   | \_/ |  \ 
+
+     Mesmer: Master Equation Solver for Multi-Energy well Reactions
+     Mesmer v4.0 compiled: -- May  6 2015 -- 18:15:22
+
+     Copyright (C) 2009-2015 by
+     Struan H. Robertson, David R. Glowacki, Chi-Hsiu Liang,
+     Chris Morley, Michael J. Pilling and contributors
+
+     Mesmer is free software: you can redistribute it and/or modify
+     it under the terms of the GNU Public License as published by
+     the Free Software Foundation, either version 2 of the License,
+     or (at your option) any later version.
+
+     But WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU Public License for more details.
+
+    You should have received a copy of the GNU Public License
+    along with Mesmer.  If not, see <http://www.gnu.org/licenses/>.
+
+defaults.xml, librarymols.xml are in ../..
+
+Parsing input xml file...
+ipropyl_reservoir.xml
+
+In R1: Parsing reaction...Irreversible unimolecular reaction
+In i-propyl: Hindered rotor b1
+In i-propyl: Hindered rotor b2
+In i-propyl: The default value of me:DistributionCalcMethod was used.
+In i-propyl: i-propyl:deltaEDown was given a range with 15 steps 
+In R1: The default value of me:TInfinity was used.
+In propene: Hindered rotor b1
+In propene: propene:ZPE was given a range with 401 steps 
+In H: The default value of the attribute spinMultiplicity was used.
+In H: The default value of me:DOSCMethod was used.
+In R1: No tunneling method used for R1
+In R1: No crossing method used for R1
+The default value of the attribute precision was used.
+3e+017PPCC, 720K at d precision with He
+The default value of the attribute precision was used.
+3.01e+017PPCC, 730K at d precision with He
+Write metadata 20150506_181717
+
+File: "ipropyl_reservoir.xml" successfully parsed.
+Main Calculation begins
+Execute calcMethod simpleCalc
+PT Grid 0
+Number of cells = 18600, Number of grains = 186
+Number of grains produced is not equal to that requested
+Number of grains requested: 186
+Number of grains produced : 1
+In FastLaplaceConvolution: 80 values in the FFT convolution routine were replaced by standard convolution
+Build Collison Operator
+Diagonalize the Reaction Operator
+PT Grid 1
+Number of cells = 18700, Number of grains = 187
+Number of grains requested: 187
+Build Collison Operator -- Time elapsed: 1 seconds.
+Diagonalize the Reaction Operator
+
+    Temperature  Concentration    Exp. Coeff.    Cal. Coeff.
+
+            720         3e+017           41.5        45.0265
+            730      3.01e+017           51.1        61.3841
+
+Finish Calculation of P-T case
+2 temperature/concentration-pressure points calculated.
+Energy convention "arbitrary" written to <moleculeList>
+ -- Total time elapsed: 1 seconds.
+
+System saved to mesmer_out.xml

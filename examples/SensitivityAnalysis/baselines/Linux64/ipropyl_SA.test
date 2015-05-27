@@ -1,0 +1,48 @@
+
+Sensitivity Analysis: Temperature =   720, Concentration = 3e+17
+
+Input variable key:
+
+  i-propyl:deltaEDown           : (1)
+  i-propyl:deltaEDownTExponent  : (2)
+  propene:ZPE                   : (3)
+
+
+ Standard deviation for i-propyl => propene+H: 38.55
+
+ First order indices for i-propyl => propene+H: 
+                (1)            (2)            (3)
+            0.71208      0.0024217     0.00052854
+
+ Second order indices for i-propyl => propene+H: 
+                (1)            (2)            (3)
+(1)              --             --             --
+(2)       0.0046041             --             --
+(3)       0.0020329      0.0025355             --
+
+ R-Squared statistic: 0.742
+
+
+Sensitivity Analysis: Temperature =   880, Concentration = 3e+16
+
+Input variable key:
+
+  i-propyl:deltaEDown           : (1)
+  i-propyl:deltaEDownTExponent  : (2)
+  propene:ZPE                   : (3)
+
+
+ Standard deviation for i-propyl => propene+H: 2160
+
+ First order indices for i-propyl => propene+H: 
+                (1)            (2)            (3)
+            0.78486    5.9013e-006     0.00018644
+
+ Second order indices for i-propyl => propene+H: 
+                (1)            (2)            (3)
+(1)              --             --             --
+(2)       0.0018278             --             --
+(3)      0.00058508      0.0034939             --
+
+ R-Squared statistic: 0.8209
+
