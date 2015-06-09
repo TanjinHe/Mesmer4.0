@@ -1,13 +1,14 @@
-﻿生成启动时间为 2015/5/27 20:22:58。
-     1>项目“D:\hetanjin\smallSoftware\github\storageFiles\Mesmer4.0\Windows VC10\qd\qd.vcxproj”在节点 3 上(build 个目标)。
-     1>InitializeBuildStatus:
+﻿生成启动时间为 2015/5/31 22:41:57。
+     1>项目“D:\hetanjin\smallSoftware\github\storageFiles\Mesmer4.0\Windows VC10\qd\qd.vcxproj”在节点 3 上(rebuild 个目标)。
+     1>_PrepareForClean:
+         正在删除文件“Debug\qd.lastbuildstate”。
+       InitializeBuildStatus:
          正在创建“Debug\qd.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        PreBuildEvent:
          Description: Copy configuration files, if not up to date
          xcopy /Y /D qd_config.h  ..\..\qd\include\qd\
          :VCEnd
-         D:qd_config.h
-         复制了 1 个文件
+         复制了 0 个文件
        ClCompile:
          D:\hetanjin\professionalSoftware\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I. /I../../qd/include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\qd\src\bits.cpp ..\..\qd\src\c_dd.cpp ..\..\qd\src\c_qd.cpp ..\..\qd\src\dd_const.cpp ..\..\qd\src\dd_real.cpp ..\..\qd\src\fpu.cpp ..\..\qd\src\qd_const.cpp ..\..\qd\src\qd_real.cpp ..\..\qd\src\util.cpp /D_CRT_SECURE_NO_DEPRECATE 
          util.cpp
@@ -38,8 +39,8 @@
        FinalizeBuildStatus:
          正在删除文件“Debug\qd.unsuccessfulbuild”。
          正在对“Debug\qd.lastbuildstate”执行 Touch 任务。
-     1>已完成生成项目“D:\hetanjin\smallSoftware\github\storageFiles\Mesmer4.0\Windows VC10\qd\qd.vcxproj”(build 个目标)的操作。
+     1>已完成生成项目“D:\hetanjin\smallSoftware\github\storageFiles\Mesmer4.0\Windows VC10\qd\qd.vcxproj”(rebuild 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:05.10
+已用时间 00:00:02.85

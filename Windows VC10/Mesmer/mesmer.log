@@ -8,7 +8,7 @@
     \_/      |/      | \_/ \_/ |   V   | \_/ |  \ 
 
      Mesmer: Master Equation Solver for Multi-Energy well Reactions
-     Mesmer v4.0 compiled: -- May 27 2015 -- 20:23:32
+     Mesmer v4.0 compiled: -- May 31 2015 -- 22:42:22
 
      Copyright (C) 2009-2015 by
      Struan H. Robertson, David R. Glowacki, Chi-Hsiu Liang,
@@ -29,47 +29,48 @@
 defaults.xml, librarymols.xml are in D:\hetanjin\professionalSoftware\Mesmer-3.0
 
 Parsing input xml file...
-TS_2_2d.xml
+TS_2.xml
 
 The default value of me:calcMethod was used.
 In R1: Parsing reaction...Isomerization reaction
-In RO2_2: The default value of me:DOSCMethod was used.
-In RO2_2: Hindered rotor b28
-In RO2_2: Hindered rotor b4
-In RO2_2: Hindered rotor b8
-In RO2_2: Hindered rotor b7
-In RO2_2: Hindered rotor b11
-In RO2_2: Hindered rotor b14
-In RO2_2: Hindered rotor b16
-In RO2_2: Hindered rotor b17
-In RO2_2: Hindered rotor b24
-In RO2_2: The default value of me:DistributionCalcMethod was used.
-In QOOH_2d: The default value of me:DOSCMethod was used.
-In QOOH_2d: Hindered rotor b27
-In QOOH_2d: Hindered rotor b4
-In QOOH_2d: Hindered rotor b8
-In QOOH_2d: Hindered rotor b7
-In QOOH_2d: Hindered rotor b10
-In QOOH_2d: Hindered rotor b13
-In QOOH_2d: Hindered rotor b15
-In QOOH_2d: Hindered rotor b16
-In QOOH_2d: Hindered rotor b23
-In QOOH_2d: Hindered rotor b28
-In QOOH_2d: The default value of me:DistributionCalcMethod was used.
-In TS_2_2d: The default value of me:DOSCMethod was used.
-In TS_2_2d: Hindered rotor b25
-In TS_2_2d: Hindered rotor b11
-In TS_2_2d: Hindered rotor b15
-In TS_2_2d: Hindered rotor b18
-In TS_2_2d: Hindered rotor b17
-In TS_2_2d: Hindered rotor b4
+In RO2: The default value of me:DOSCMethod was used.
+In RO2: The default value of me:DistributionCalcMethod was used.
+In QOOH: The default value of me:DOSCMethod was used.
+In QOOH: The default value of me:DistributionCalcMethod was used.
+In TS: The default value of me:DOSCMethod was used.
 In R1: No crossing method used for R1
 The default value of the attribute precision was used.
 20atm, 298.15K at d precision with He
-Write metadata 20150527_223619
+The default value of the attribute precision was used.
+20atm, 300K at d precision with He
+The default value of the attribute precision was used.
+20atm, 400K at d precision with He
+The default value of the attribute precision was used.
+20atm, 450K at d precision with He
+The default value of the attribute precision was used.
+20atm, 500K at d precision with He
+The default value of the attribute precision was used.
+20atm, 550K at d precision with He
+The default value of the attribute precision was used.
+20atm, 600K at d precision with He
+The default value of the attribute precision was used.
+20atm, 650K at d precision with He
+The default value of the attribute precision was used.
+20atm, 700K at d precision with He
+The default value of the attribute precision was used.
+20atm, 750K at d precision with He
+The default value of the attribute precision was used.
+20atm, 800K at d precision with He
+The default value of the attribute precision was used.
+20atm, 850K at d precision with He
+The default value of the attribute precision was used.
+20atm, 900K at d precision with He
+Write metadata 20150609_234818
 
-File: "TS_2_2d.xml" successfully parsed.
+File: "TS_2.xml" successfully parsed.
 Main Calculation begins
 Execute calcMethod simpleCalc
 PT Grid 0
-Number of cells = 11600, Number of grains = 116
+Number of cells = 49750, Number of grains = 995
+In FastLaplaceConvolution: 12580 values in the FFT convolution routine were replaced by standard convolution
+Build Collison Operator
