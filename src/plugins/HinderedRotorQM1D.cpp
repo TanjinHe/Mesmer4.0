@@ -150,7 +150,6 @@ namespace mesmer
 			vector<int> indicies ;
 			vector<double> coefficients ;
 			int maxIndex(0) ;
-			//	add by Tanjin to read the sine terms of inertia
 			bool inertUseSine = pp->XmlReadBoolean("useSineTerms") || pp->XmlReadBoolean("UseSineTerms");
 
 			while(pp = pp->XmlMoveTo("me:InertiaPoint"))
@@ -167,7 +166,6 @@ namespace mesmer
 
 			// As coefficients can be supplied in any order, they are sorted here.
 			
-			//	add by Tanjin to read the sine terms
 			if (inertUseSine)
 			{
 				m_kineticCosCoeff.resize(maxIndex/2+1);
@@ -385,40 +383,9 @@ namespace mesmer
 			gStructure& gs = pDOS->getHost()->getStruc();
 			size_t nAngle(36) ;
 			vector<double> angle(nAngle,0.0), redInvMOI ;
-			cout<<get_BondID();
 			gs.reducedMomentInertiaAngular(get_BondID(), get_Phase(), angle, redInvMOI, m_ppConfigData) ;  // Units a.u.*Angstrom*Angstrom.
 			FourierCosCoeffs(angle, redInvMOI, m_kineticCosCoeff, get_Expansion()) ;
 			FourierSinCoeffs(angle, redInvMOI, m_kineticSinCoeff, get_Expansion()) ;
-
-			for(int tmp=0; tmp<nAngle; tmp++)
-			{
-				printf("angle %d:\t%f\n",tmp, 16.85763/redInvMOI[tmp]);
-			}
-			for (int tmp=0; tmp<nAngle; tmp++)
-			{
-				double fitted_MOI = 0.0;
-				double tmp_angle = tmp*M_PI/18;
-				for(int tmp2=0; tmp2<m_kineticSinCoeff.size();tmp2++)
-				{
-					//fitted_MOI += m_kineticCosCoeff[tmp2]*cos(tmp2*tmp_angle)+m_kineticSinCoeff[tmp2]*sin(tmp2*tmp_angle);
-					fitted_MOI += m_kineticCosCoeff[tmp2]*cos(tmp2*tmp_angle);
-				}
-				printf("fitted angle %f:\t%f\n", tmp_angle, 16.85763/fitted_MOI);
-
-			}
-
-		}
-
-
-
-		for (int tmp=1; tmp<m_kineticCosCoeff.size();tmp++)
-		{
-			m_kineticCosCoeff[tmp] = 0.0;
-		}
-
-		for (int tmp=1; tmp<m_kineticSinCoeff.size();tmp++)
-		{
-			m_kineticSinCoeff[tmp] = 0.0;
 		}
 
 		// Find maximum quantum No. for rotor. To ensure convergence basis functions 
@@ -426,9 +393,7 @@ namespace mesmer
 		// wavenumbers which appears in the definition of root below. 
 
 		double bint    = m_kineticCosCoeff[0] ;
-		printf(	"species:\t%s\tbint:\t%f\n",pDOS->getHost()->getName().c_str(), bint);
-		//double root    = sqrt(double(max(2*MaximumCell,size_t(100000)))/bint) ;
-		double root    = sqrt(double(MaximumCell)/bint) ;
+		double root    = sqrt(double(max(2*MaximumCell,size_t(100000)))/bint) ;
 		int kmax       = int(root + 1.0) ;
 		size_t nstates = 2*kmax +1 ;
 
@@ -507,15 +472,6 @@ namespace mesmer
 
 			// Add off-diagonal sine kinetic terms.
 			if (m_kineticSinCoeff.size() > 1) {
-				printf(	"name:%s\t m_kineticCosCoeff size:\t%d\tm_kineticSinCoeff size:\t%d\n",pDOS->getHost()->getName().c_str(),m_kineticCosCoeff.size(), m_kineticSinCoeff.size());
-				for (int tmp=0; tmp<m_kineticCosCoeff.size();tmp++)
-				{
-					printf("cosine %d:\t%f\n", tmp, m_kineticCosCoeff[tmp]);
-				}
-				for (int tmp=0; tmp<m_kineticSinCoeff.size();tmp++)
-				{
-					printf("sine %d:\t%f\n", tmp, m_kineticSinCoeff[tmp]);
-				}
 				for (int m(1); m < int(m_kineticSinCoeff.size()) && m <= kmax ; m++) {
 					double matrixElement = -m_kineticSinCoeff[m]/2.0 ;
 					for (size_t i(0) ; i < nstates; i++) {
