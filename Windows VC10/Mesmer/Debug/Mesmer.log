@@ -1,10 +1,18 @@
-﻿生成启动时间为 2015/6/26 1:49:49。
+﻿生成启动时间为 2015/6/29 22:21:43。
      1>项目“D:\hetanjin\smallSoftware\github\storageFiles\Mesmer4.0\Windows VC10\Mesmer\Mesmer.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
          正在创建“Debug\Mesmer.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
-         D:\hetanjin\professionalSoftware\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../../src/plugins /I../../src /I../../tinyxml /I../../qd/include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D TIXML_USE_STL /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\src\gStructure.cpp /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE 
-         gStructure.cpp
+         D:\hetanjin\professionalSoftware\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../../src/plugins /I../../src /I../../tinyxml /I../../qd/include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D TIXML_USE_STL /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\src\plugins\HinderedRotorQM1D.cpp /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE 
+         HinderedRotorQM1D.cpp
+     1>d:\hetanjin\smallsoftware\github\storagefiles\mesmer4.0\src\plugins\hinderedrotorqm1d.cpp(187): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\hetanjin\smallsoftware\github\storagefiles\mesmer4.0\src\plugins\hinderedrotorqm1d.cpp(393): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\hetanjin\smallsoftware\github\storagefiles\mesmer4.0\src\plugins\hinderedrotorqm1d.cpp(397): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\hetanjin\smallsoftware\github\storagefiles\mesmer4.0\src\plugins\hinderedrotorqm1d.cpp(401): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\hetanjin\smallsoftware\github\storagefiles\mesmer4.0\src\plugins\hinderedrotorqm1d.cpp(414): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\hetanjin\smallsoftware\github\storagefiles\mesmer4.0\src\plugins\hinderedrotorqm1d.cpp(419): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\hetanjin\smallsoftware\github\storagefiles\mesmer4.0\src\plugins\hinderedrotorqm1d.cpp(511): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\hetanjin\smallsoftware\github\storagefiles\mesmer4.0\src\plugins\hinderedrotorqm1d.cpp(515): warning C4018: “<”: 有符号/无符号不匹配
        ManifestResourceCompile:
          所有输出均为最新。
        Link:
@@ -94,4 +102,4 @@
 
 生成成功。
 
-已用时间 00:00:02.18
+已用时间 00:00:09.18

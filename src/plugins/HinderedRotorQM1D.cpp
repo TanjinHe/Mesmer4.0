@@ -427,8 +427,8 @@ namespace mesmer
 
 		double bint    = m_kineticCosCoeff[0] ;
 		printf(	"species:\t%s\tbint:\t%f\n",pDOS->getHost()->getName().c_str(), bint);
-		//double root    = sqrt(double(max(2*MaximumCell,size_t(100000)))/bint) ;
-		double root    = sqrt(double(MaximumCell)/bint) ;
+		double root    = sqrt(double(max(2*MaximumCell,size_t(100000)))/bint) ;
+		//double root    = sqrt(double(MaximumCell)/bint) ;
 		int kmax       = int(root + 1.0) ;
 		size_t nstates = 2*kmax +1 ;
 
