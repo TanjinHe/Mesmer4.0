@@ -29,42 +29,6 @@
 defaults.xml, librarymols.xml are in D:\hetanjin\professionalSoftware\Mesmer-3.0
 
 Parsing input xml file...
-C3.xml
+C3_HO.xml
 
-The default value of me:calcMethod was used.
-In R1: Parsing reaction...Isomerization reaction
 In RO2: The default value of me:DOSCMethod was used.
-In RO2: Hindered rotor b4
-In RO2: Hindered rotor b7
-In RO2: Hindered rotor b10
-In RO2: The default value of me:DistributionCalcMethod was used.
-In QOOH: The default value of me:DOSCMethod was used.
-In QOOH: Hindered rotor b2
-In QOOH: Hindered rotor b3
-In QOOH: Hindered rotor b6
-In QOOH: Hindered rotor b9
-In QOOH: The default value of me:DistributionCalcMethod was used.
-In TS: The default value of me:DOSCMethod was used.
-In R1: No crossing method used for R1
-The default value of the attribute precision was used.
-20atm, 298.15K at d precision with He
-Write metadata 20150629_222153
-
-File: "C3.xml" successfully parsed.
-Main Calculation begins
-Execute calcMethod simpleCalc
-PT Grid 0
-Number of cells = 10400, Number of grains = 52
-In FastLaplaceConvolution: 280 values in the FFT convolution routine were replaced by standard convolution
-Build Collison Operator
-Diagonalize the Reaction Operator
-
-    Temperature  Concentration    Exp. Coeff.    Cal. Coeff.
-
-         298.15   4.92298e+020
-Finish Calculation of P-T case
-1 temperature/concentration-pressure points calculated.
-Energy convention "arbitrary" written to <moleculeList>
- -- Total time elapsed: 79 seconds.
-
-System saved to mesmer_out.xml
