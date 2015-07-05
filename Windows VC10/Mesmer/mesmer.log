@@ -8,7 +8,7 @@
     \_/      |/      | \_/ \_/ |   V   | \_/ |  \ 
 
      Mesmer: Master Equation Solver for Multi-Energy well Reactions
-     Mesmer v4.0 compiled: -- May 31 2015 -- 22:42:22
+     Mesmer v4.0 compiled: -- Jul  4 2015 -- 23:35:45
 
      Copyright (C) 2009-2015 by
      Struan H. Robertson, David R. Glowacki, Chi-Hsiu Liang,
@@ -26,9 +26,35 @@
     You should have received a copy of the GNU Public License
     along with Mesmer.  If not, see <http://www.gnu.org/licenses/>.
 
-defaults.xml, librarymols.xml are in D:\hetanjin\professionalSoftware\Mesmer-3.0
+defaults.xml, librarymols.xml are in D:\hetanjin\professionalSoftware\Mesmer-4.0
 
 Parsing input xml file...
 C3_HO.xml
 
 In RO2: The default value of me:DOSCMethod was used.
+In RO2: The energy convention is thermodynamic, derived from me:Hf298
+In RO2: energy converted from thermodynamic298K to thermodynamic
+In RO2: New me:ZPE element written with data from me:Hf298
+In TS: The default value of me:DOSCMethod was used.
+In TS: energy converted from thermodynamic298K to thermodynamic
+In TS: New me:ZPE element written with data from me:Hf298
+In QOOH: The default value of me:DOSCMethod was used.
+In QOOH: energy converted from thermodynamic298K to thermodynamic
+In QOOH: New me:ZPE element written with data from me:Hf298
+No value of role was supplied and the default value IS UNSATISFACTORY. CHOOSE ONE FROM LIST**
+Write metadata 20150705_221237
+
+File: "C3_HO.xml" successfully parsed.
+Main Calculation begins
+Execute calcMethod ThermodynamicTable
+In He: The default value of the attribute spinMultiplicity was used.
+In He: The default value of me:DOSCMethod was used.
+gDensityOfStates initialization failed.
+Restricted thermo output for He because it has no non-arbitrary energy data.
+In QOOH: enthalpy of formation at 298K:energy converted from thermodynamic to thermodynamic298K
+In RO2: enthalpy of formation at 298K:energy converted from thermodynamic to thermodynamic298K
+In TS: enthalpy of formation at 298K:energy converted from thermodynamic to thermodynamic298K
+Energy convention "thermodynamic" written to <moleculeList>
+ -- Total time elapsed: 9 seconds.
+
+System saved to mesmer_out.xml

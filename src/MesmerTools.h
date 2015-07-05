@@ -17,6 +17,9 @@ namespace mesmer
 
   double canonicalMeanEnergy(const vector<double>& DOS, const vector<double>& Ene, const double beta);
 
+  // Function to calculate the thermodynamic data and output to the .test file
+  void thermodynamicCalc(const double* prtnFn,const double beta, double MW, double * out_thermoData);
+
   // Calculate the average grain energy and then number of states per grain.
   void calcGrainAverages(const size_t &MaximumGrain, const size_t &cellPerGrain, const size_t &cellOffset, const std::vector<double>& shiftedCellDOS,
     const std::vector<double>& shiftedCellEne, vector<double>& grainDOS, vector<double>& grainEne) ;

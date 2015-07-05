@@ -40,6 +40,25 @@ namespace mesmer
 
   }
 
+  // Function to calculate the thermodynamic data and output to the .test file
+  // prtnFn[0] is the partition function z1*z2*...*zj*...*zn
+  // prtnFn[1] denotes for sum(z'[j]/z[j])
+  // prtnFn[2] denotes for sum((z'[j]/z[j])')=sum(z''[j]/z[j]-(z'[j]/z[j])^2)
+  // z'[j] is dz/d(1/T)
+  void thermodynamicCalc(const double* prtnFn,const double beta, double MW, double * out_thermoData)
+  {
+	  double temp = 1.0/boltzmann_RCpK/beta;
+	  double S, Cp, HmH0;
+
+	  S = idealGasC/Calorie_in_Joule*(2.5+1.5*log(2*M_PI*MW/1000)-4*log(AvogadroC)-3*log(PlancksConstant_in_JouleSecond)-log(atm_in_pascal)+2.5*log(idealGasC*temp)+log(prtnFn[0])-prtnFn[1]/temp);
+	  Cp = idealGasC/Calorie_in_Joule*(prtnFn[2]/temp/temp+2.5);
+	  HmH0 = idealGasC/Calorie_in_Joule*(-prtnFn[1]+temp*2.5);
+	  out_thermoData[0] = HmH0;
+	  out_thermoData[1] = S;
+	  out_thermoData[2] = Cp;
+	  ctest << "temperature\tQ, H(T)-H(0), S, and Cp:\t" << temp << "\t" << prtnFn[0] << "\t" << HmH0 << "\t" << S << "\t" << Cp << endl;
+  }
+
   //
   // Calculate the average grain energy and then number of states per grain.
   //

@@ -102,9 +102,11 @@ namespace mesmer
       {
         // Get the name of the molecule.
         const char* reftxt = ppmol->XmlReadValue("id");
+		const char* roletxt = ppmol->XmlReadValue("role");
         if (reftxt) {
           //Use molType="forThermo" to activate DOS properties.
-          pMoleculeManager->addmol(string(reftxt), string("forThermo"), pSys->getEnv(), pSys->m_Flags);
+          //pMoleculeManager->addmol(string(reftxt), string("forThermo"), pSys->getEnv(), pSys->m_Flags);
+		  pMoleculeManager->addmol(string(reftxt), string(roletxt), pSys->getEnv(), pSys->m_Flags);
         }
       }
 
@@ -187,6 +189,8 @@ namespace mesmer
       pmol->getDOS().thermodynamicsFunctions(298.15, m_unitFctr,
         enthalpy298, S298, dummy);
       tempLessThan298 = true;
+	  ctest << "\nthermodynamic data based on qtot begin:\t" << pmol->getName() << endl;
+	  ctest << "unit:[cal][mol][K]" << endl;
       for (double temp = m_Tmin; temp <= m_Tmax; temp += m_TempInterval)
       {
         double T = temp;
@@ -213,6 +217,7 @@ namespace mesmer
           ppVal->XmlWriteAttribute("Hf", Hf.back()*R / 1000, 4, true); //back to kJ/mol
         }
       }
+	  ctest << "thermodynamic data based on qtot end:\t" << pmol->getName() << endl << endl;
 
       if (m_makeNasaPoly && !IsNan(Hf298local))
       {

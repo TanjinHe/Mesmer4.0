@@ -15,6 +15,9 @@ namespace mesmer
     // Function to calculate contribution to canonical partition function.
     virtual double canPrtnFnCntrb(gDensityOfStates* gdos, double beta) ;
 
+	// Function to calculate contribution to canonical partition function and the derivatives.
+	virtual bool canTestPrtnFnCntrb(gDensityOfStates* gdos, double beta, double* prtnFn) ;
+
     // Function to return the number of degrees of freedom associated with this count.
     virtual unsigned int NoDegOfFreedom(gDensityOfStates* gdos) ;
 
@@ -321,6 +324,64 @@ namespace mesmer
 
     return qtot*qelec ;
   }  
+
+  // Function to calculate contribution to canonical partition function and the derivatives.
+  // prtnFn[0] is the partition function z1*z2*...*zj*...*zn
+  // prtnFn[1] denotes for sum(z'[j]/z[j])
+  // prtnFn[2] denotes for sum((z'[j]/z[j])')=sum(z''[j]/z[j]-(z'[j]/z[j])^2)
+  // z'[j] is dz/d(1/T)
+  bool QMRotor::canTestPrtnFnCntrb(gDensityOfStates* gdos, double beta, double* prtnFn)
+  {
+	  prtnFn[0] = 1.0;
+	  prtnFn[1] = 0.0;
+	  prtnFn[2] = 0.0;
+
+	  vector<double> rotConst;
+	  RotationalTop rotorType = gdos->get_rotConsts(rotConst);
+	  double sym = gdos->get_Sym();
+
+	  double temp = 1.0/boltzmann_RCpK/beta;
+
+	  prtnFn[0] *= double(gdos->getSpinMultiplicity());
+
+	  switch(rotorType){
+	  case NONLINEAR://3-D symmetric/asymmetric/spherical top
+		  prtnFn[0] *= (sqrt(M_PI/(rotConst[0] * rotConst[1] * rotConst[2]))*(pow(beta,-1.5))/sym) ;
+		  prtnFn[1] += -1.5*temp;
+		  prtnFn[2] += 1.5*temp*temp;
+		  break;
+	  case LINEAR://2-D linear
+		  prtnFn[0] /= (rotConst[0]*sym*beta) ;
+		  prtnFn[1] += -temp;
+		  prtnFn[2] += temp*temp;
+		  break;
+	  default:
+		  break; // Assume atom.
+	  }
+
+	  // Electronic excited states.
+	  // this code could be accelerated because of the recalculated items if needed
+	  // the current state is clearer for the physical meaning
+	  vector<double> eleExc;
+	  gdos->getEleExcitation(eleExc);
+	  double Q =1.0;
+	  double Q1 = 0.0;
+	  double Q2 = 0.0;
+	  double tmp_q = 0.0;
+	  for (size_t j(0) ; j < eleExc.size() ; ++j){
+		  tmp_q = exp(-beta*eleExc[j]) ;
+		  Q += tmp_q;
+		  Q1 += -eleExc[j]/boltzmann_RCpK * tmp_q;
+		  Q2 += pow(eleExc[j]/boltzmann_RCpK, 2) * tmp_q;
+	  }
+
+	  prtnFn[0] *= Q;
+	  prtnFn[1] += Q1/Q;
+	  prtnFn[2] += Q2/Q - pow(Q1/Q, 2);
+
+	  return true;
+  }
+
 
   // Function to return the number of degrees of freedom associated with this count.
   unsigned int QMRotor::NoDegOfFreedom(gDensityOfStates* gdos) {

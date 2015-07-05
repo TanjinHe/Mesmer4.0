@@ -1,0 +1,147 @@
+temperature	Q, H(T)-H(0), S, and Cp:	298	3.24823e+006	4466.2	78.6761	22.1793
+temperature	Q, H(T)-H(0), S, and Cp:	298	550878	3797.33	72.9056	20.7693
+temperature	Q, H(T)-H(0), S, and Cp:	298	9.33271e+006	5060.41	82.7674	25.2431
+temperature	Q, H(T)-H(0), S, and Cp:	298.15	1	1481.21	30.1251	4.96801
+
+thermodynamic data based on qtot begin:	He
+unit:[cal][mol][K]
+temperature	Q, H(T)-H(0), S, and Cp:	298.15	1	1481.21	30.1251	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	300	1	1490.4	30.1558	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	400	1	1987.2	31.5851	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	500	1	2484.01	32.6936	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	600	1	2980.81	33.5994	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	700	1	3477.61	34.3652	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	800	1	3974.41	35.0286	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	900	1	4471.21	35.6138	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	1000	1	4968.01	36.1372	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	1100	1	5464.81	36.6107	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	1200	1	5961.61	37.043	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	1300	1	6458.42	37.4406	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	1400	1	6955.22	37.8088	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	1500	1	7452.02	38.1516	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	1600	1	7948.82	38.4722	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	1700	1	8445.62	38.7734	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	1800	1	8942.42	39.0573	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	1900	1	9439.22	39.3259	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	2000	1	9936.02	39.5808	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	2100	1	10432.8	39.8231	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	2200	1	10929.6	40.0543	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	2300	1	11426.4	40.2751	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	2400	1	11923.2	40.4865	4.96801
+temperature	Q, H(T)-H(0), S, and Cp:	2500	1	12420	40.6893	4.96801
+thermodynamic data based on qtot end:	He
+
+temperature	Q, H(T)-H(0), S, and Cp:	298	9.33271e+006	5060.41	82.7674	25.2431
+temperature	Q, H(T)-H(0), S, and Cp:	298.15	9.36115e+006	5064.19	82.7801	25.2512
+
+thermodynamic data based on qtot begin:	QOOH
+unit:[cal][mol][K]
+temperature	Q, H(T)-H(0), S, and Cp:	298.15	9.36115e+006	5064.19	82.7801	25.2512
+temperature	Q, H(T)-H(0), S, and Cp:	300	9.71874e+006	5111	82.9366	25.3523
+temperature	Q, H(T)-H(0), S, and Cp:	400	6.74664e+007	7917.2	90.9725	30.7138
+temperature	Q, H(T)-H(0), S, and Cp:	500	4.12409e+008	11232.7	98.351	35.4655
+temperature	Q, H(T)-H(0), S, and Cp:	600	2.29933e+009	14984.2	105.18	39.4418
+temperature	Q, H(T)-H(0), S, and Cp:	700	1.18592e+010	19099.2	111.517	42.7621
+temperature	Q, H(T)-H(0), S, and Cp:	800	5.70097e+010	23519.8	117.415	45.576
+temperature	Q, H(T)-H(0), S, and Cp:	900	2.56818e+011	28201.2	122.926	47.994
+temperature	Q, H(T)-H(0), S, and Cp:	1000	1.08917e+012	33107.8	128.094	50.0899
+temperature	Q, H(T)-H(0), S, and Cp:	1100	4.36683e+012	38210.2	132.956	51.9154
+temperature	Q, H(T)-H(0), S, and Cp:	1200	1.66145e+013	43483.2	137.543	53.5093
+temperature	Q, H(T)-H(0), S, and Cp:	1300	6.01944e+013	48905.4	141.882	54.9034
+temperature	Q, H(T)-H(0), S, and Cp:	1400	2.08326e+014	54458.1	145.997	56.1248
+temperature	Q, H(T)-H(0), S, and Cp:	1500	6.90708e+014	60125.4	149.906	57.1968
+temperature	Q, H(T)-H(0), S, and Cp:	1600	2.19965e+015	65893.2	153.628	58.1396
+temperature	Q, H(T)-H(0), S, and Cp:	1700	6.7447e+015	71749.6	157.179	58.9708
+temperature	Q, H(T)-H(0), S, and Cp:	1800	1.99565e+016	77684.1	160.57	59.7054
+temperature	Q, H(T)-H(0), S, and Cp:	1900	5.70956e+016	83687.9	163.816	60.3566
+temperature	Q, H(T)-H(0), S, and Cp:	2000	1.58246e+017	89753	166.927	60.9353
+temperature	Q, H(T)-H(0), S, and Cp:	2100	4.25624e+017	95872.9	169.913	61.4513
+temperature	Q, H(T)-H(0), S, and Cp:	2200	1.11271e+018	102041	172.783	61.9126
+temperature	Q, H(T)-H(0), S, and Cp:	2300	2.83169e+018	108254	175.544	62.3262
+temperature	Q, H(T)-H(0), S, and Cp:	2400	7.02456e+018	114505	178.205	62.6982
+temperature	Q, H(T)-H(0), S, and Cp:	2500	1.70082e+019	120792	180.771	63.0336
+thermodynamic data based on qtot end:	QOOH
+
+temperature	Q, H(T)-H(0), S, and Cp:	1000	1.08917e+012	33107.8	128.094	50.0899
+
+QOOH                    C   3H   7O   2     G   298.150  2500.000 1000.000    01
+  6.3348907e+00  3.1313345e-02 -1.6152882e-05  4.1443246e-09 -4.2759419e-13    2
+ -3.4458025e+03 -3.8118861e+00  1.7607878e+00  4.3141333e-02 -2.2118904e-05    3
+ -1.7952466e-09  4.2395145e-12 -2.2454365e+03  1.9752302e+01  0.0000000e+00    4
+
+temperature	Q, H(T)-H(0), S, and Cp:	298	3.24823e+006	4466.2	78.6761	22.1793
+temperature	Q, H(T)-H(0), S, and Cp:	298.15	3.25648e+006	4469.53	78.6873	22.1873
+
+thermodynamic data based on qtot begin:	RO2
+unit:[cal][mol][K]
+temperature	Q, H(T)-H(0), S, and Cp:	298.15	3.25648e+006	4469.53	78.6873	22.1873
+temperature	Q, H(T)-H(0), S, and Cp:	300	3.35992e+006	4510.67	78.8248	22.2869
+temperature	Q, H(T)-H(0), S, and Cp:	400	1.71129e+007	7013.94	85.9883	27.7813
+temperature	Q, H(T)-H(0), S, and Cp:	500	8.06438e+007	10053.4	92.7495	32.8988
+temperature	Q, H(T)-H(0), S, and Cp:	600	3.61928e+008	13569.3	99.1475	37.2964
+temperature	Q, H(T)-H(0), S, and Cp:	700	1.55772e+009	17490	105.184	41.015
+temperature	Q, H(T)-H(0), S, and Cp:	800	6.43496e+009	21753.7	110.873	44.1754
+temperature	Q, H(T)-H(0), S, and Cp:	900	2.55105e+010	26310	116.236	46.8819
+temperature	Q, H(T)-H(0), S, and Cp:	1000	9.70638e+010	31117.6	121.299	49.2118
+temperature	Q, H(T)-H(0), S, and Cp:	1100	3.54654e+011	36141.8	126.086	51.224
+temperature	Q, H(T)-H(0), S, and Cp:	1200	1.24556e+012	41353.4	130.62	52.9655
+temperature	Q, H(T)-H(0), S, and Cp:	1300	4.20973e+012	46727.2	134.92	54.4757
+temperature	Q, H(T)-H(0), S, and Cp:	1400	1.37105e+013	52241.9	139.007	55.7881
+temperature	Q, H(T)-H(0), S, and Cp:	1500	4.30906e+013	57879.2	142.895	56.9316
+temperature	Q, H(T)-H(0), S, and Cp:	1600	1.30881e+014	63623.4	146.602	57.9306
+temperature	Q, H(T)-H(0), S, and Cp:	1700	3.84746e+014	69461.2	150.141	58.806
+temperature	Q, H(T)-H(0), S, and Cp:	1800	1.09622e+015	75381.1	153.525	59.5756
+temperature	Q, H(T)-H(0), S, and Cp:	1900	3.03153e+015	81373.3	156.764	60.2545
+temperature	Q, H(T)-H(0), S, and Cp:	2000	8.14805e+015	87429.4	159.871	60.8554
+temperature	Q, H(T)-H(0), S, and Cp:	2100	2.13127e+016	93542.1	162.853	61.389
+temperature	Q, H(T)-H(0), S, and Cp:	2200	5.43194e+016	99705.3	165.72	61.8644
+temperature	Q, H(T)-H(0), S, and Cp:	2300	1.35058e+017	105913	168.479	62.2894
+temperature	Q, H(T)-H(0), S, and Cp:	2400	3.27959e+017	112162	171.139	62.6705
+temperature	Q, H(T)-H(0), S, and Cp:	2500	7.78606e+017	118446	173.704	63.0133
+thermodynamic data based on qtot end:	RO2
+
+temperature	Q, H(T)-H(0), S, and Cp:	1000	9.70638e+010	31117.6	121.299	49.2118
+
+RO2                     C   3H   7O   2     G   298.150  2500.000 1000.000    01
+  3.1477797e+00  3.6588691e-02 -1.9595979e-05  5.1789966e-09 -5.4691374e-13    2
+ -2.6857980e+03  1.0915699e+01  1.4310252e+00  3.3020011e-02  4.8216642e-06    3
+ -2.7070240e-08  1.2592089e-11 -1.8892516e+03  2.1598602e+01  0.0000000e+00    4
+
+temperature	Q, H(T)-H(0), S, and Cp:	298	550878	3797.33	72.9056	20.7693
+temperature	Q, H(T)-H(0), S, and Cp:	298.15	551964	3800.45	72.916	20.779
+
+thermodynamic data based on qtot begin:	TS
+unit:[cal][mol][K]
+temperature	Q, H(T)-H(0), S, and Cp:	298.15	551964	3800.45	72.916	20.779
+temperature	Q, H(T)-H(0), S, and Cp:	300	565536	3839	73.0449	20.899
+temperature	Q, H(T)-H(0), S, and Cp:	400	2.12927e+006	6249.51	79.9358	27.2275
+temperature	Q, H(T)-H(0), S, and Cp:	500	8.24023e+006	9256.52	86.6228	32.7461
+temperature	Q, H(T)-H(0), S, and Cp:	600	3.23313e+007	12765.7	93.0083	37.2838
+temperature	Q, H(T)-H(0), S, and Cp:	700	1.26375e+008	16685.9	99.0438	40.9989
+temperature	Q, H(T)-H(0), S, and Cp:	800	4.85584e+008	20944.4	104.726	44.0797
+temperature	Q, H(T)-H(0), S, and Cp:	900	1.81836e+009	25485.5	110.071	46.6692
+temperature	Q, H(T)-H(0), S, and Cp:	1000	6.60231e+009	30265.2	115.105	48.8673
+temperature	Q, H(T)-H(0), S, and Cp:	1100	2.31811e+010	35248.3	119.853	50.7456
+temperature	Q, H(T)-H(0), S, and Cp:	1200	7.8611e+010	40405.5	124.34	52.3584
+temperature	Q, H(T)-H(0), S, and Cp:	1300	2.57426e+011	45712.5	128.587	53.7484
+temperature	Q, H(T)-H(0), S, and Cp:	1400	8.14366e+011	51148.9	132.615	54.9507
+temperature	Q, H(T)-H(0), S, and Cp:	1500	2.49076e+012	56697.4	136.443	55.9943
+temperature	Q, H(T)-H(0), S, and Cp:	1600	7.37282e+012	62343.3	140.086	56.9035
+temperature	Q, H(T)-H(0), S, and Cp:	1700	2.11461e+013	68074.3	143.56	57.6982
+temperature	Q, H(T)-H(0), S, and Cp:	1800	5.88373e+013	73879.7	146.878	58.3956
+temperature	Q, H(T)-H(0), S, and Cp:	1900	1.59017e+014	79750.6	150.052	59.0098
+temperature	Q, H(T)-H(0), S, and Cp:	2000	4.17971e+014	85679.3	153.093	59.5527
+temperature	Q, H(T)-H(0), S, and Cp:	2100	1.06976e+015	91659.1	156.011	60.0342
+temperature	Q, H(T)-H(0), S, and Cp:	2200	2.66917e+015	97684.4	158.814	60.4629
+temperature	Q, H(T)-H(0), S, and Cp:	2300	6.49998e+015	103750	161.51	60.8457
+temperature	Q, H(T)-H(0), S, and Cp:	2400	1.54655e+016	109852	164.107	61.1888
+temperature	Q, H(T)-H(0), S, and Cp:	2500	3.59899e+016	115987	166.611	61.4972
+thermodynamic data based on qtot end:	TS
+
+temperature	Q, H(T)-H(0), S, and Cp:	1000	6.60231e+009	30265.2	115.105	48.8673
+
+TS                      C   3H   7O   2     G   298.150  2500.000 1000.000    01
+  3.9445640e+00  3.5427122e-02 -1.9463732e-05  5.2603221e-09 -5.6622419e-13    2
+ -3.0546106e+03  3.3679998e+00 -2.8495272e+00  5.3467201e-02 -3.1093755e-05    3
+  7.0936234e-10  4.3816539e-12 -1.2555360e+03  3.8354056e+01  0.0000000e+00    4
+

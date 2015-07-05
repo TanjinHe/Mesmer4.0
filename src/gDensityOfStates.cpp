@@ -836,7 +836,37 @@ namespace mesmer
     }
 
     // Calculate rovibronic partition functions based on cells.
-    double cellCanPrtnFn = canonicalPartitionFunction(m_cellDOS, cellEne, beta);
+    //double cellCanPrtnFn = canonicalPartitionFunction(m_cellDOS, cellEne, beta);
+
+	double qtot = 1.0;
+	double thermo_qtot[3] = {1.0, 0.0, 0.0};
+	double tmp_prtnFn[3];
+	double thermo_data[3];
+	gStructure& gs = m_host->getStruc();
+	double moleculeWeight = gs.getMass();
+
+/*
+	for ( vector<DensityOfStatesCalculator*>::size_type j = 0 ; j < m_DOSCalculators.size() ; ++j ) 
+	{
+		qtot *= m_DOSCalculators[j]->canPrtnFnCntrb(this, beta);
+	}*/
+
+	// Calculate rovibronic partition functions, using analytical formula where possible.
+	for ( vector<DensityOfStatesCalculator*>::size_type j = 0 ; j < m_DOSCalculators.size() ; ++j ) 
+	{
+		if (m_DOSCalculators[j]->canTestPrtnFnCntrb(this, beta, tmp_prtnFn))
+		{
+			thermo_qtot[0] *= tmp_prtnFn[0];
+			thermo_qtot[1] += tmp_prtnFn[1];
+			thermo_qtot[2] += tmp_prtnFn[2];
+		}
+		else
+		{
+			ctest << "qtot calculation error!\tDOSCalculator Type:\t"<< m_DOSCalculators[j]->getTypeID() << "Name:\t" << m_host->getName() << endl;
+		}
+	}
+	//the unit of thermo_data calculated is [cal][mol][K]
+	thermodynamicCalc(thermo_qtot, beta, moleculeWeight, thermo_data);
 
     // The following calculates the mean internal molecular energy.
     double internalEnergy = canonicalMeanEnergy(m_cellDOS, cellEne, beta);
@@ -844,14 +874,21 @@ namespace mesmer
     // The rovibronic partition function must be corrected for translation 
     // and (assuming an ideal gas) molecular indistinguishability.
     double molarVol = 1.e+06*idealGasC / (boltzmann_RCpK*beta*atm_in_pascal);  // cm3
-    gibbsFreeEnergy = unitFctr*(-log(cellCanPrtnFn)
-      - log(tp_C * pow((m_host->getStruc().getMass() / beta), 1.5)*molarVol)
-      + log(AvogadroC)) / beta;
+    //gibbsFreeEnergy = unitFctr*(-log(cellCanPrtnFn)
+    //  - log(tp_C * pow((m_host->getStruc().getMass() / beta), 1.5)*molarVol)
+    //  + log(AvogadroC)) / beta;
 
-    // The enthalpy must be corrected for translation by an additional 3kT/2.
-    enthalpy = unitFctr*(internalEnergy + 5.0 / (2.0*beta));
+    //// The enthalpy must be corrected for translation by an additional 3kT/2.
+    //enthalpy = unitFctr*(internalEnergy + 5.0 / (2.0*beta));
 
-    entropy = (enthalpy - gibbsFreeEnergy) / temp;
+    //entropy = (enthalpy - gibbsFreeEnergy) / temp;
+
+	// transform unit from [cal][mol][K] to [kJ][mol][K]
+	enthalpy = thermo_data[0]*4.184/1000;
+	entropy = thermo_data[1]*4.184/1000;
+	gibbsFreeEnergy = enthalpy - entropy * temp;
+
+	//printf("kJ/mol\t%f\t%f\t%f\t%f\n", temp, thermo_qtot[0], enthalpy, entropy*1000);
 
     return true;
   }
