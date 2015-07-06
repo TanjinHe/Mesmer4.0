@@ -25,7 +25,8 @@ namespace mesmer
     if (!ppPropList)
       ppPropList = pp; //Be forgiving; we can get by without a propertyList element
     double MW = ppPropList->XmlReadPropertyDouble("me:MW", optional);
-    if (IsNan(MW))
+    ReadStructure();
+	if (IsNan(MW))
     {
       ReadStructure();
       if (Atoms.empty())
