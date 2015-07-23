@@ -242,7 +242,10 @@ namespace mesmer
       kf += m_GrainKfmc[i] * exp( log(rctGrainDOS[i]) - beta * rctGrainEne[i]);
 
     const double rctprtfn = canonicalPartitionFunction(rctGrainDOS, rctGrainEne, beta);
-    kf /= rctprtfn;
+    //printf("temperature: %f\ttsprtfn: %f\trctprtfn: %f\n",1/beta/boltzmann_RCpK, kf, rctprtfn);
+	ctest << "temperature, tsprtfn, rctprtfn:    " << 1.0/beta/boltzmann_RCpK << "    " << kf << "    " << rctprtfn << endl;
+	kf /= rctprtfn;
+	
 
     if (pCoeffs) {
       pCoeffs->push_back(kf) ;

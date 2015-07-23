@@ -836,7 +836,7 @@ namespace mesmer
     }
 
     // Calculate rovibronic partition functions based on cells.
-    //double cellCanPrtnFn = canonicalPartitionFunction(m_cellDOS, cellEne, beta);
+    double cellCanPrtnFn = canonicalPartitionFunction(m_cellDOS, cellEne, beta);
 
 	double qtot = 1.0;
 	double thermo_qtot[3] = {1.0, 0.0, 0.0};
@@ -844,6 +844,9 @@ namespace mesmer
 	double thermo_data[3];
 	gStructure& gs = m_host->getStruc();
 	double moleculeWeight = gs.getMass();
+	double thermo_enthalpy = 0.0;
+	double thermo_entropy = 0.0;
+	double thermo_gibbsFreeEnergy = 0.0;
 
 /*
 	for ( vector<DensityOfStatesCalculator*>::size_type j = 0 ; j < m_DOSCalculators.size() ; ++j ) 
@@ -874,21 +877,26 @@ namespace mesmer
     // The rovibronic partition function must be corrected for translation 
     // and (assuming an ideal gas) molecular indistinguishability.
     double molarVol = 1.e+06*idealGasC / (boltzmann_RCpK*beta*atm_in_pascal);  // cm3
-    //gibbsFreeEnergy = unitFctr*(-log(cellCanPrtnFn)
-    //  - log(tp_C * pow((m_host->getStruc().getMass() / beta), 1.5)*molarVol)
-    //  + log(AvogadroC)) / beta;
+    gibbsFreeEnergy = unitFctr*(-log(cellCanPrtnFn)
+      - log(tp_C * pow((m_host->getStruc().getMass() / beta), 1.5)*molarVol)
+      + log(AvogadroC)) / beta;
 
-    //// The enthalpy must be corrected for translation by an additional 3kT/2.
-    //enthalpy = unitFctr*(internalEnergy + 5.0 / (2.0*beta));
+    // The enthalpy must be corrected for translation by an additional 3kT/2.
+    enthalpy = unitFctr*(internalEnergy + 5.0 / (2.0*beta));
 
-    //entropy = (enthalpy - gibbsFreeEnergy) / temp;
+    entropy = (enthalpy - gibbsFreeEnergy) / temp;
 
 	// transform unit from [cal][mol][K] to [kJ][mol][K]
-	enthalpy = thermo_data[0]*4.184/1000;
-	entropy = thermo_data[1]*4.184/1000;
-	gibbsFreeEnergy = enthalpy - entropy * temp;
+	thermo_enthalpy = thermo_data[0]*4.184/1000;
+	thermo_entropy = thermo_data[1]*4.184/1000;
+	thermo_gibbsFreeEnergy = thermo_enthalpy - thermo_entropy * temp;
 
+	ctest << "        temperature, cellCanPrtnFn, enthalpy and entropy ([cal][mol][K]):    " << temp << "    " << cellCanPrtnFn << "    " << enthalpy*1000.0/4.184 << "    " << entropy*1000.0/4.184 << endl; 
 	//printf("kJ/mol\t%f\t%f\t%f\t%f\n", temp, thermo_qtot[0], enthalpy, entropy*1000);
+
+	enthalpy = thermo_enthalpy;
+	entropy = thermo_entropy;
+	gibbsFreeEnergy = thermo_gibbsFreeEnergy;
 
     return true;
   }

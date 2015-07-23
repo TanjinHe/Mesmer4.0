@@ -362,6 +362,12 @@ namespace mesmer
       gs.reducedMomentInertiaAngular(get_BondID(), get_Phase(), angle, redInvMOI, m_ppConfigData) ;  // Units a.u.*Angstrom*Angstrom.
       FourierCosCoeffs(angle, redInvMOI, m_kineticCosCoeff, get_Expansion()) ;
       FourierSinCoeffs(angle, redInvMOI, m_kineticSinCoeff, get_Expansion()) ;
+
+	  printf("%s\n",this->get_BondID().data());
+	  for (int i=0; i<36; i++)
+	  {
+		  printf("angle redInvMOI:\t%f\t%f\n",angle[i],redInvMOI[i]);
+	  }
     }
 
     // Find maximum quantum No. for rotor. To ensure convergence basis functions 

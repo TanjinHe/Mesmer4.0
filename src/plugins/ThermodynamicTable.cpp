@@ -189,7 +189,7 @@ namespace mesmer
       pmol->getDOS().thermodynamicsFunctions(298.15, m_unitFctr,
         enthalpy298, S298, dummy);
       tempLessThan298 = true;
-	  ctest << "\nthermodynamic data based on qtot begin:\t" << pmol->getName() << endl;
+	  ctest << "\nthermodynamic data based on qtot begin:    " << pmol->getName() << endl;
 	  ctest << "unit:[cal][mol][K]" << endl;
       for (double temp = m_Tmin; temp <= m_Tmax; temp += m_TempInterval)
       {
@@ -217,7 +217,7 @@ namespace mesmer
           ppVal->XmlWriteAttribute("Hf", Hf.back()*R / 1000, 4, true); //back to kJ/mol
         }
       }
-	  ctest << "thermodynamic data based on qtot end:\t" << pmol->getName() << endl << endl;
+	  ctest << "thermodynamic data based on qtot end:    " << pmol->getName() << endl << endl;
 
       if (m_makeNasaPoly && !IsNan(Hf298local))
       {

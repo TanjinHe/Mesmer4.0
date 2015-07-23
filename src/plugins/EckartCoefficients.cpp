@@ -106,13 +106,14 @@ namespace mesmer
       }
     }
 
-    if (pReact->getFlags().TunnellingCoeffEnabled){
+	if (pReact->getFlags().TunnellingCoeffEnabled){
       ctest << "\nTunneling coefficients for: " << pReact->getName()
         << "\nV0 = " << V0 << ", V1 = " << V1
         << ", barrier0 = " << barrier0 << ", barrier1 = " << barrier1
         << ", imFreq = " << imFreq * SpeedOfLight_in_cm << " Hz\n{\n";
       for(int i = 0; i < MaximumCell; ++i){
-        ctest << TunnelingProbability[i] << endl;
+        //ctest << TunnelingProbability[i] << endl;
+		ctest << i << "    " << TunnelingProbability[i] << endl;
       }
       ctest << "}\n";
     }

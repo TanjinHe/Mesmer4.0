@@ -56,7 +56,7 @@ namespace mesmer
 	  out_thermoData[0] = HmH0;
 	  out_thermoData[1] = S;
 	  out_thermoData[2] = Cp;
-	  ctest << "temperature\tQ, H(T)-H(0), S, and Cp:\t" << temp << "\t" << prtnFn[0] << "\t" << HmH0 << "\t" << S << "\t" << Cp << endl;
+	  ctest << "temperature, Q, H(T)-H(0), S, and Cp ([cal][mol][K]):    " << temp << "    " << prtnFn[0] << "    " << HmH0 << "    " << S << "    " << Cp << endl;
   }
 
   //
