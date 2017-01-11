@@ -8,7 +8,7 @@
     \_/      |/      | \_/ \_/ |   V   | \_/ |  \ 
 
      Mesmer: Master Equation Solver for Multi-Energy well Reactions
-     Mesmer v4.0 compiled: -- Jul  4 2015 -- 23:35:45
+     Mesmer v4.0 compiled: -- Jan  4 2017 -- 20:50:34
 
      Copyright (C) 2009-2015 by
      Struan H. Robertson, David R. Glowacki, Chi-Hsiu Liang,
@@ -26,54 +26,26 @@
     You should have received a copy of the GNU Public License
     along with Mesmer.  If not, see <http://www.gnu.org/licenses/>.
 
-defaults.xml, librarymols.xml are in D:\hetanjin\professionalSoftware\Mesmer-4.0
+defaults.xml, librarymols.xml are in ../..
 
 Parsing input xml file...
-TS_3a_1_modelled.xml
+DMM.xml
 
-The default value of me:calcMethod was used.
-In R1: Parsing reaction...Irreversible unimolecular reaction
-In QOOH_3a: The default value of me:DOSCMethod was used.
-In QOOH_3a: Hindered rotor b15
-In QOOH_3a: Hindered rotor b16
-In QOOH_3a: Hindered rotor b3
-In QOOH_3a: Hindered rotor b24
-In QOOH_3a: Hindered rotor b25
-In QOOH_3a: Hindered rotor b5
-In QOOH_3a: Hindered rotor b6
-In QOOH_3a: Hindered rotor b10
-In QOOH_3a: Hindered rotor b9
-In QOOH_3a: Hindered rotor b13
-In QOOH_3a: The default value of me:DistributionCalcMethod was used.
-In TS_3a_1: The default value of me:DOSCMethod was used.
-In TS_3a_1: Hindered rotor b15
-In TS_3a_1: Hindered rotor b16
-In TS_3a_1: Hindered rotor b25
-In TS_3a_1: Hindered rotor b5
-In TS_3a_1: Hindered rotor b6
-In TS_3a_1: Hindered rotor b10
-In TS_3a_1: Hindered rotor b9
-In TS_3a_1: Hindered rotor b13
-In R1: No tunneling method used for R1
-In R1: No crossing method used for R1
-The default value of the attribute precision was used.
-20atm, 298.15K at d precision with He
-The default value of the attribute precision was used.
-20atm, 400K at d precision with He
-The default value of the attribute precision was used.
-20atm, 500K at d precision with He
-The default value of the attribute precision was used.
-20atm, 600K at d precision with He
-The default value of the attribute precision was used.
-20atm, 700K at d precision with He
-The default value of the attribute precision was used.
-20atm, 800K at d precision with He
-The default value of the attribute precision was used.
-20atm, 900K at d precision with He
-Write metadata 20150723_224156
+In DMM: The default value of me:DOSCMethod was used.
+In DMM: Hindered rotor b4
+In DMM: Hindered rotor b5
+In DMM: Hindered rotor b8
+In DMM: Hindered rotor b9
+In DMM: The energy convention is thermodynamic, derived from me:Hf298
+In DMM: energy converted from thermodynamic298K to thermodynamic
+In DMM: New me:ZPE element written with data from me:Hf298
+Write metadata 20170106_181024
 
-File: "TS_3a_1_modelled.xml" successfully parsed.
+File: "DMM.xml" successfully parsed.
 Main Calculation begins
-Execute calcMethod simpleCalc
-PT Grid 0
-Number of cells = 28980, Number of grains = 1449
+Execute calcMethod ThermodynamicTable
+In DMM: enthalpy of formation at 298K:energy converted from thermodynamic to thermodynamic298K
+Energy convention "thermodynamic" written to <moleculeList>
+ -- Total time elapsed: 155 seconds.
+
+System saved to mesmer_out.xml

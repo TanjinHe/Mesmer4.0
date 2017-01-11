@@ -374,11 +374,26 @@ namespace mesmer
 
       exportToXYZ("at2_inXZ");
 
+  	  printf("before along z-axis:\n");
+      for (iter = Atoms.begin(); iter != Atoms.end(); ++iter) {
+		vector<double> r(3, 0.0);
+        iter->second.coords.Get(&r[0]);
+		cout<< iter->second.element <<"\t";
+		vector<double>::iterator it;
+		for(it=r.begin(); it!=r.end();it++)
+		{
+			printf("%f\t",*it);
+		}
+		printf("\n");
+      }
+
       dMatrix rotY(3, 0.0);
       sgn = (bond.z()*bond.x() > 0.0) ? 1.0 : -1.0 ;
-      double cosTheta =     fabs(bond.z() / bond.length()) ;			
-      double sinTheta = sgn*fabs(bond.x() / bond.length());
-      rotY[0][0] = rotY[2][2] = cosTheta;
+//      double cosTheta =     fabs(bond.z() / bond.length()) ;			
+//      double sinTheta = sgn*fabs(bond.x() / bond.length());
+      double cosTheta = bond.z() / bond.length();			
+      double sinTheta = bond.x() / bond.length();
+	  rotY[0][0] = rotY[2][2] = cosTheta;
       rotY[1][1] = 1.0;
       rotY[0][2] = -sinTheta ;
       rotY[2][0] = sinTheta ;
@@ -391,6 +406,19 @@ namespace mesmer
       }
 
       exportToXYZ("z_axis=at1-at2") ;
+
+	  printf("before rotation:\n");
+      for (iter = Atoms.begin(); iter != Atoms.end(); ++iter) {
+		vector<double> r(3, 0.0);
+        iter->second.coords.Get(&r[0]);
+		cout<< iter->second.element <<"\t";
+		vector<double>::iterator it;
+		for(it=r.begin(); it!=r.end();it++)
+		{
+			printf("%f\t",*it);
+		}
+		printf("\n");
+      }
 
       // Determine the content of one of the fragments so that it can moved relative to the other.
 
@@ -441,6 +469,20 @@ namespace mesmer
 
         exportToXYZ(("rotate_fragment_" + toString(i)).c_str()) ;
         redInvMOI.push_back(conMntInt2RotCnt*getGRIT(bondID)) ;
+  	  
+		printf("after rotation:\n");
+		for (iter = Atoms.begin(); iter != Atoms.end(); ++iter) {
+			vector<double> r(3, 0.0);
+	        iter->second.coords.Get(&r[0]);
+			cout<< iter->second.element <<"\t";
+			vector<double>::iterator it;
+			for(it=r.begin(); it!=r.end();it++)
+			{
+				printf("%f\t",*it);
+			}
+			printf("\n");
+	      }
+
       }
 
       // Restore original coordinates.

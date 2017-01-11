@@ -1,17 +1,14 @@
-﻿生成启动时间为 2015/7/23 15:55:39。
-     1>项目“D:\hetanjin\smallSoftware\github\storageFiles\Mesmer4.0\Windows VC10\Mesmer\Mesmer.vcxproj”在节点 2 上(build 个目标)。
+﻿生成启动时间为 2017/1/6 18:09:34。
+     1>项目“E:\hetanjin\GithubFiles\Mesmer4.0\Windows VC10\Mesmer\Mesmer.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
          正在创建“Debug\Mesmer.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
-         D:\hetanjin\professionalSoftware\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../../src/plugins /I../../src /I../../tinyxml /I../../qd/include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D TIXML_USE_STL /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\src\IrreversibleUnimolecularReaction.cpp ..\..\src\MesmerTools.cpp ..\..\src\plugins\ThermodynamicTable.cpp /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE 
-         ThermodynamicTable.cpp
-         MesmerTools.cpp
-         IrreversibleUnimolecularReaction.cpp
-         正在生成代码...
+         E:\hetanjin\softwares\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../../src/plugins /I../../src /I../../tinyxml /I../../qd/include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D TIXML_USE_STL /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\src\gStructure.cpp /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE 
+         gStructure.cpp
        ManifestResourceCompile:
          所有输出均为最新。
        Link:
-         D:\hetanjin\professionalSoftware\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Mesmer\Mesmer.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Mesmer.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\hetanjin\smallSoftware\github\storageFiles\Mesmer4.0\Windows VC10\Mesmer\Mesmer.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"..\Mesmer\Mesmer.lib" /MACHINE:X86 /PROFILE Debug\Mesmer.exe.embed.manifest.res
+         E:\hetanjin\softwares\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Mesmer\Mesmer.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Mesmer.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\hetanjin\GithubFiles\Mesmer4.0\Windows VC10\Mesmer\Mesmer.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"..\Mesmer\Mesmer.lib" /MACHINE:X86 /PROFILE Debug\Mesmer.exe.embed.manifest.res
          Debug\AssignMolTypes.obj
          Debug\AssociationReaction.obj
          Debug\BimolecularSinkReaction.obj
@@ -80,8 +77,8 @@
          Debug\WKBCrossingCoeff.obj
          Debug\WKBTunnellingCoefficients.obj
          Debug\XMLPersist.obj
-         "D:\hetanjin\smallSoftware\github\storageFiles\Mesmer4.0\Windows VC10\qd\qdD.lib"
-         "D:\hetanjin\smallSoftware\github\storageFiles\Mesmer4.0\Windows VC10\Debug\TinyXMLD.lib"
+         "E:\hetanjin\GithubFiles\Mesmer4.0\Windows VC10\qd\qdD.lib"
+         "E:\hetanjin\GithubFiles\Mesmer4.0\Windows VC10\Debug\TinyXMLD.lib"
      1>LINK : warning LNK4075: 忽略“/INCREMENTAL”(由于“/PROFILE”规范)
      1>AssignMolTypes.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/OPT:REF”规范)
        Manifest:
@@ -89,12 +86,12 @@
          所有输出均为最新。
        LinkEmbedManifest:
          所有输出均为最新。
-         Mesmer.vcxproj -> D:\hetanjin\smallSoftware\github\storageFiles\Mesmer4.0\Windows VC10\Mesmer\..\Mesmer\Mesmer.exe
+         Mesmer.vcxproj -> E:\hetanjin\GithubFiles\Mesmer4.0\Windows VC10\Mesmer\..\Mesmer\Mesmer.exe
        FinalizeBuildStatus:
          正在删除文件“Debug\Mesmer.unsuccessfulbuild”。
          正在对“Debug\Mesmer.lastbuildstate”执行 Touch 任务。
-     1>已完成生成项目“D:\hetanjin\smallSoftware\github\storageFiles\Mesmer4.0\Windows VC10\Mesmer\Mesmer.vcxproj”(build 个目标)的操作。
+     1>已完成生成项目“E:\hetanjin\GithubFiles\Mesmer4.0\Windows VC10\Mesmer\Mesmer.vcxproj”(build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:07.65
+已用时间 00:00:02.95
