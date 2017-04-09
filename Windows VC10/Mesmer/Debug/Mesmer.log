@@ -1,10 +1,13 @@
-﻿生成启动时间为 2017/1/6 18:09:34。
+﻿生成启动时间为 2017/4/9 13:18:15。
      1>项目“E:\hetanjin\GithubFiles\Mesmer4.0\Windows VC10\Mesmer\Mesmer.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
          正在创建“Debug\Mesmer.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
          E:\hetanjin\softwares\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../../src/plugins /I../../src /I../../tinyxml /I../../qd/include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D TIXML_USE_STL /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\src\gStructure.cpp /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE 
          gStructure.cpp
+     1>e:\hetanjin\githubfiles\mesmer4.0\src\gstructure.cpp(873): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\hetanjin\githubfiles\mesmer4.0\src\gstructure.cpp(930): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\hetanjin\githubfiles\mesmer4.0\src\gstructure.cpp(867): warning C4101: “j”: 未引用的局部变量
        ManifestResourceCompile:
          所有输出均为最新。
        Link:
@@ -94,4 +97,4 @@
 
 生成成功。
 
-已用时间 00:00:02.95
+已用时间 00:00:03.36
