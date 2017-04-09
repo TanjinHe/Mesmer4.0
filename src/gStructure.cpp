@@ -334,6 +334,12 @@ namespace mesmer
         coordinates.push_back(iter->second.coords);
       }
 
+  	//  printf("orig_coords:\n");
+	  //for(int i=0 ; i<m_atomicOrder.size(); i++)
+	  //{
+		 // printf("%s\t%f\t%f\t%f\n", Atoms[m_atomicOrder[i]].id.c_str(), Atoms[m_atomicOrder[i]].coords.x(), Atoms[m_atomicOrder[i]].coords.y(), Atoms[m_atomicOrder[i]].coords.z());
+	  //}
+
       pair<string, string> bondats = GetAtomsOfBond(bondID);
       atom &at1 = Atoms[bondats.first];
       atom &at2 = Atoms[bondats.second];
@@ -374,18 +380,18 @@ namespace mesmer
 
       exportToXYZ("at2_inXZ");
 
-  	  printf("before along z-axis:\n");
-      for (iter = Atoms.begin(); iter != Atoms.end(); ++iter) {
-		vector<double> r(3, 0.0);
-        iter->second.coords.Get(&r[0]);
-		cout<< iter->second.element <<"\t";
-		vector<double>::iterator it;
-		for(it=r.begin(); it!=r.end();it++)
-		{
-			printf("%f\t",*it);
-		}
-		printf("\n");
-      }
+  //	  printf("before along z-axis:\n");
+  //    for (iter = Atoms.begin(); iter != Atoms.end(); ++iter) {
+		//vector<double> r(3, 0.0);
+  //      iter->second.coords.Get(&r[0]);
+		//cout<< iter->second.element <<"\t";
+		//vector<double>::iterator it;
+		//for(it=r.begin(); it!=r.end();it++)
+		//{
+		//	printf("%f\t",*it);
+		//}
+		//printf("\n");
+  //    }
 
       dMatrix rotY(3, 0.0);
       sgn = (bond.z()*bond.x() > 0.0) ? 1.0 : -1.0 ;
@@ -407,18 +413,18 @@ namespace mesmer
 
       exportToXYZ("z_axis=at1-at2") ;
 
-	  printf("before rotation:\n");
-      for (iter = Atoms.begin(); iter != Atoms.end(); ++iter) {
-		vector<double> r(3, 0.0);
-        iter->second.coords.Get(&r[0]);
-		cout<< iter->second.element <<"\t";
-		vector<double>::iterator it;
-		for(it=r.begin(); it!=r.end();it++)
-		{
-			printf("%f\t",*it);
-		}
-		printf("\n");
-      }
+	 // printf("before rotation:\n");
+  //    for (iter = Atoms.begin(); iter != Atoms.end(); ++iter) {
+		//vector<double> r(3, 0.0);
+  //      iter->second.coords.Get(&r[0]);
+		//cout<< iter->second.element <<"\t";
+		//vector<double>::iterator it;
+		//for(it=r.begin(); it!=r.end();it++)
+		//{
+		//	printf("%f\t",*it);
+		//}
+		//printf("\n");
+  //    }
 
       // Determine the content of one of the fragments so that it can moved relative to the other.
 
@@ -470,18 +476,18 @@ namespace mesmer
         exportToXYZ(("rotate_fragment_" + toString(i)).c_str()) ;
         redInvMOI.push_back(conMntInt2RotCnt*getGRIT(bondID)) ;
   	  
-		printf("after rotation:\n");
-		for (iter = Atoms.begin(); iter != Atoms.end(); ++iter) {
-			vector<double> r(3, 0.0);
-	        iter->second.coords.Get(&r[0]);
-			cout<< iter->second.element <<"\t";
-			vector<double>::iterator it;
-			for(it=r.begin(); it!=r.end();it++)
-			{
-				printf("%f\t",*it);
-			}
-			printf("\n");
-	      }
+		//printf("after rotation:\n");
+		//for (iter = Atoms.begin(); iter != Atoms.end(); ++iter) {
+		//	vector<double> r(3, 0.0);
+	 //       iter->second.coords.Get(&r[0]);
+		//	cout<< iter->second.element <<"\t";
+		//	vector<double>::iterator it;
+		//	for(it=r.begin(); it!=r.end();it++)
+		//	{
+		//		printf("%f\t",*it);
+		//	}
+		//	printf("\n");
+	 //     }
 
       }
 
@@ -537,6 +543,9 @@ namespace mesmer
   double gStructure::getGRIT(string bondID) {
 
     size_t msize(m_RotBondIDs.size() + 3);
+	////--------------------test begin-----------------------
+	//size_t msize(1 + 3);
+	////-------------------- test end -----------------------
     dMatrix GRIT(msize, 0.0);
 
     // Save coordinates.
@@ -579,6 +588,92 @@ namespace mesmer
     GRIT[0][1] = GRIT[1][0] = -sxy;
     GRIT[0][2] = GRIT[2][0] = -sxz;
     GRIT[1][2] = GRIT[2][1] = -syz;
+
+	////--------------------test begin-----------------------
+ //   // Calculate the velocity vectors (based on the Sharma, Raman and Green vector).
+
+ //   vector<vector<double> > velocities(m_RotBondIDs.size(), vector<double>(3 * NumAtoms(), 0.0));
+ //   for (size_t i(0); i < m_RotBondIDs.size(); i++) {
+
+ //     vector<double> velocity(3 * NumAtoms(), 0.0);
+
+ //     internalRotationVector(m_RotBondIDs[i], velocity, false);
+
+ //     // Remove centre of mass velocity.
+ //     vector3 centreOfMassVelocity;
+ //     for (size_t j(0); j < m_atomicOrder.size(); j++){
+ //       double mass = atomMass((Atoms.find(m_atomicOrder[j]))->second.element);
+ //       vector3 vtmp;
+ //       vtmp.Set(&velocity[3 * j]);
+ //       centreOfMassVelocity += mass*vtmp;
+ //     }
+ //     centreOfMassVelocity /= sm;
+
+ //     for (size_t j(0), idx(0); j < m_atomicOrder.size(); j++){
+ //       for (size_t n(0); n < 3; idx++, n++) {
+ //         velocity[idx] -= centreOfMassVelocity[n];
+ //       }
+ //     }
+
+ //     velocities[i] = velocity;
+ //   }
+
+	////get the index of bondID
+ //   size_t index_bond(3);
+ //   for (index_bond = 0; index_bond < m_RotBondIDs.size() && m_RotBondIDs[index_bond] != bondID; index_bond++);
+
+ //   // Calculate the internal kinetic energy terms.
+	//vector<double> &vi = velocities[index_bond];
+	//double smk(0.0);
+	//for (size_t m(0), idx(0); m < m_atomicOrder.size(); m++)
+	//{
+	//	double mass = atomMass((Atoms.find(m_atomicOrder[m]))->second.element);
+	//	for (size_t l(0); l < 3; l++, idx++) 
+	//	{
+	//		smk += mass*vi[idx] * vi[idx];
+	//	}
+	//}
+	//GRIT[3][3] = smk;
+
+ //   // Calculate the Coriolis terms.
+ //   vector3 coriolis;
+ //   for (iter = Atoms.begin(); iter != Atoms.end(); ++iter) 
+	//{
+	//	size_t ll = 3 * getAtomicOrder(iter->first);
+	//	vector3 r = iter->second.coords;
+	//	vector3 vtmp;
+	//	vtmp.Set(&vi[ll]);
+	//	double mass = atomMass(iter->second.element);
+	//	coriolis += mass*cross(r, vtmp);
+ //   }
+ //   GRIT[0][3] = GRIT[3][0] = coriolis.x();
+ //   GRIT[1][3] = GRIT[3][1] = coriolis.y();
+ //   GRIT[2][3] = GRIT[3][2] = coriolis.z();
+
+
+ //   // Restore original coordinates.
+
+ //   size_t i(0);
+ //   for (iter = Atoms.begin(); iter != Atoms.end(); ++iter, i++) {
+ //     iter->second.coords = coordinates[i];
+ //   }
+
+ //   if (m_verbose) {
+ //     string MatrixTitle("Generalized rotation inertia tensor:");
+ //     GRIT.print(MatrixTitle, ctest);
+ //     ctest << endl;
+ //   }
+
+ //   dMatrix invGRIT(GRIT);
+ //   invGRIT.invertLUdecomposition();
+ //   if (m_verbose) {
+ //     string MatrixTitle = "Inverse of Generalized rotation inertia tensor:";
+ //     invGRIT.print(MatrixTitle, ctest);
+ //   }
+
+ //   return invGRIT[3][3];
+	////--------------------test end-----------------
+
 
     // Calculate the velocity vectors (based on the Sharma, Raman and Green vector).
 
@@ -765,6 +860,222 @@ namespace mesmer
   void gStructure::getZCoords(vector<double> &coords) const {
     getAtomicCoords(coords, Z);
   }
+
+	//convert the string contain 3n-6-t non-tortional modes to a (3n-6-t)*(3n) matrix, which is a two-dimensional vector for convenience
+	void gStructure::nonTortionalVectors(std::string modesStr, vector<vector<double>> &modes)
+	{
+		int i,j;
+		vector<vector<int>> atomsInModes;
+		OpenBabel::vector3 coord_I, coord_J, coord_K, coord_L;
+		double RIJ1,RIJ2,RIJ3,RJK1,RJK2,RJK3,RKL1,RKL2,RKL3,RIJ,RJK,RKL,PIJK,CIJK,SIJK,PJKL,CJKL,SJKL,CIJKL,SIJKL;
+
+		//read in the modes from modesStr
+		for(i = 0; i < modesStr.length(); i++)
+		{
+			if(modesStr[i] == '\t')
+			{
+				modesStr[i] = ' ';
+			}
+		}
+
+		std::string::size_type pos1, pos2, pos3;
+		pos1 = 0;
+		pos2 = modesStr.find(' ');
+		pos3 = modesStr.find('-');;
+		if(std::string::npos != pos3)
+		{
+			atomsInModes.push_back(vector<int>());
+		}
+		while(std::string::npos != pos3)
+		{
+			while(std::string::npos != pos3 && pos3<=pos2)
+			{
+				(atomsInModes.back()).push_back(atoi((modesStr.substr(pos1, pos3-pos1)).c_str()));
+				pos1 = pos3+1;
+				pos3 = modesStr.find('-', pos1);
+			}
+			if(atomsInModes.back().size() > 0)
+			{
+				atomsInModes.back().push_back(atoi((modesStr.substr(pos1, pos2-pos1)).c_str()));
+				if(std::string::npos != pos3)
+				{
+					atomsInModes.push_back(vector<int>());							
+				}
+			}
+
+			if(std::string::npos != pos3)
+			{
+				pos1=pos2+1;
+				pos2=modesStr.find(' ', pos1);
+				if(std::string::npos == pos2)
+				{
+					pos2 = modesStr.length();
+				}
+			}
+		}
+
+		////print modes details for test
+		//for(i=0; i < atomsInModes.size(); i++)
+		//{
+		//	for(j=0; j < atomsInModes[i].size(); j++)
+		//	{
+		//		printf("%d\t", atomsInModes[i][j]);
+		//	}
+		//	printf("\n");
+		//}
+
+		//convert the info about label of atoms in modes to vectors about vibration modes 
+		modes = vector<vector<double>>(atomsInModes.size(), vector<double>(3*NumAtoms(), 0.0));
+		//details follows to assign values in modes
+		for(i=0; i < atomsInModes.size(); i++)
+		{
+			switch(atomsInModes[i].size())
+			{
+			case 2:
+				//bond vibration for stretch
+				coord_I = Atoms[m_atomicOrder[atomsInModes[i][0]-1]].coords;
+				coord_J = Atoms[m_atomicOrder[atomsInModes[i][1]-1]].coords;
+				RIJ1 = coord_J.x() - coord_I.x();
+				RIJ2 = coord_J.y() - coord_I.y();
+				RIJ3 = coord_J.z() - coord_I.z();
+				RIJ = (coord_I - coord_J).length();
+
+				modes[i][3*atomsInModes[i][0]-3] = -RIJ1/RIJ;
+				modes[i][3*atomsInModes[i][0]-2] = -RIJ2/RIJ;			
+				modes[i][3*atomsInModes[i][0]-1] = -RIJ3/RIJ;
+				modes[i][3*atomsInModes[i][1]-3] = RIJ1/RIJ;
+				modes[i][3*atomsInModes[i][1]-2] = RIJ2/RIJ;			
+				modes[i][3*atomsInModes[i][1]-1] = RIJ3/RIJ;
+
+				//printf("%d\t%d\t%d\n", i+1, atomsInModes[i][0], atomsInModes[i][1]);
+				//printf("%f\t%f\t%f\n", coord_I.x(), coord_I.y(), coord_I.z());
+				//printf("%f\t%f\t%f\n", coord_J.x(), coord_J.y(), coord_J.z());
+				//printf("%f\t%f\t%f\t%f\n", RIJ1, RIJ2, RIJ3, RIJ);
+				
+				break;
+			case 3:
+				//linear bend
+				coord_I = Atoms[m_atomicOrder[atomsInModes[i][0]-1]].coords;
+				coord_J = Atoms[m_atomicOrder[atomsInModes[i][1]-1]].coords;
+				coord_K = Atoms[m_atomicOrder[atomsInModes[i][2]-1]].coords;
+				RIJ1 = coord_J.x() - coord_I.x();
+				RIJ2 = coord_J.y() - coord_I.y();
+				RIJ3 = coord_J.z() - coord_I.z();
+				RJK1 = coord_K.x() - coord_J.x();
+				RJK2 = coord_K.y() - coord_J.y();
+				RJK3 = coord_K.z() - coord_J.z();
+				RIJ = (coord_I - coord_J).length();
+				RJK = (coord_J - coord_K).length();
+				PIJK = OpenBabel::dot((coord_J - coord_I), (coord_J - coord_K))/RIJ/RJK;
+				if(PIJK > 1)
+				{
+					PIJK =1.0;
+				}
+				else if(PIJK < -1)
+				{
+					PIJK = -1.0;
+				}
+				PIJK = acos(PIJK);
+				CIJK = cos(PIJK);
+				SIJK = sin(PIJK);
+
+				modes[i][3*atomsInModes[i][0]-3] = (-CIJK*RIJ1*RJK-RIJ*RJK1)/(SIJK*pow(RIJ,2)*RJK);
+				modes[i][3*atomsInModes[i][0]-2] = (-CIJK*RIJ2*RJK-RIJ*RJK2)/(SIJK*pow(RIJ,2)*RJK);
+				modes[i][3*atomsInModes[i][0]-1] = (-CIJK*RIJ3*RJK-RIJ*RJK3)/(SIJK*pow(RIJ,2)*RJK);
+				modes[i][3*atomsInModes[i][1]-3] = (-RIJ*RIJ1*RJK+CIJK*RIJ1*pow(RJK,2)-CIJK*pow(RIJ,2)*RJK1+RIJ*RJK*RJK1)/(SIJK*pow(RIJ,2)*pow(RJK,2));
+				modes[i][3*atomsInModes[i][1]-2] = (-RIJ*RIJ2*RJK+CIJK*RIJ2*pow(RJK,2)-CIJK*pow(RIJ,2)*RJK2+RIJ*RJK*RJK2)/(SIJK*pow(RIJ,2)*pow(RJK,2));
+				modes[i][3*atomsInModes[i][1]-1] = (-RIJ*RIJ3*RJK+CIJK*RIJ3*pow(RJK,2)-CIJK*pow(RIJ,2)*RJK3+RIJ*RJK*RJK3)/(SIJK*pow(RIJ,2)*pow(RJK,2));
+				modes[i][3*atomsInModes[i][2]-3] = (RIJ1*RJK+CIJK*RIJ*RJK1)/(SIJK*RIJ*pow(RJK,2));
+				modes[i][3*atomsInModes[i][2]-2] = (RIJ2*RJK+CIJK*RIJ*RJK2)/(SIJK*RIJ*pow(RJK,2));
+				modes[i][3*atomsInModes[i][2]-1] = (RIJ3*RJK+CIJK*RIJ*RJK3)/(SIJK*RIJ*pow(RJK,2));
+
+				//printf("%d\t%d\t%d\t%d\n", i+1, atomsInModes[i][0], atomsInModes[i][1], atomsInModes[i][2]);
+				//printf("%f\t%f\t%f\n", coord_I.x(), coord_I.y(), coord_I.z());
+				//printf("%f\t%f\t%f\n", coord_J.x(), coord_J.y(), coord_J.z());
+				//printf("%f\t%f\t%f\n", coord_K.x(), coord_K.y(), coord_K.z());
+				//printf("%f\t%f\t%f\t%f\n", RIJ1, RIJ2, RIJ3, RIJ);
+				//printf("%f\t%f\t%f\t%f\n", RJK1, RJK2, RJK3, RJK);
+				//printf("%f\t%f\t%f\n", PIJK, CIJK, SIJK);
+				//non-linear bend should be added in the future
+				break;
+			case 4:
+				//rotations that haven't been included in the tortional modes
+				coord_I = Atoms[m_atomicOrder[atomsInModes[i][0]-1]].coords;
+				coord_J = Atoms[m_atomicOrder[atomsInModes[i][1]-1]].coords;
+				coord_K = Atoms[m_atomicOrder[atomsInModes[i][2]-1]].coords;
+				coord_L = Atoms[m_atomicOrder[atomsInModes[i][3]-1]].coords;
+				RIJ1 = coord_J.x() - coord_I.x();
+				RIJ2 = coord_J.y() - coord_I.y();
+				RIJ3 = coord_J.z() - coord_I.z();
+				RJK1 = coord_K.x() - coord_J.x();
+				RJK2 = coord_K.y() - coord_J.y();
+				RJK3 = coord_K.z() - coord_J.z();
+				RKL1 = coord_L.x() - coord_K.x();
+				RKL2 = coord_L.y() - coord_K.y();
+				RKL3 = coord_L.z() - coord_K.z();
+				RIJ = (coord_I - coord_J).length();
+				RJK = (coord_J - coord_K).length();
+				RKL = (coord_K - coord_L).length();
+				PIJK = OpenBabel::dot((coord_J - coord_I), (coord_J - coord_K))/RIJ/RJK;
+				if(PIJK > 1)
+				{
+					PIJK =1.0;
+				}
+				else if(PIJK < -1)
+				{
+					PIJK = -1.0;
+				}
+				PIJK = acos(PIJK);
+				CIJK = cos(PIJK);
+				SIJK = sin(PIJK);
+
+				PJKL = OpenBabel::dot((coord_K - coord_J), (coord_K - coord_L))/RJK/RKL;
+				if(PJKL > 1)
+				{
+					PJKL =1.0;
+				}
+				else if(PJKL < -1)
+				{
+					PJKL = -1.0;
+				}
+				PJKL = acos(PJKL);
+				CJKL = cos(PJKL);
+				SJKL = sin(PJKL);
+				CIJKL=((-RIJ2*RJK1+RIJ1*RJK2)*(-RJK2*RKL1+RJK1*RKL2)+(RIJ3*RJK1-RIJ1*RJK3)*(RJK3*RKL1-RJK1*RKL3)+(-RIJ3*RJK2+RIJ2*RJK3)*(-RJK3*RKL2+RJK2*RKL3))/(SIJK*SJKL*RIJ*RJK*RJK*RKL);
+				SIJKL=((-RIJ3*RJK2+RIJ2*RJK3)*RKL1+(RIJ3*RJK1-RIJ1*RJK3)*RKL2+(-(RIJ2*RJK1)+RIJ1*RJK2)*RKL3)/(RIJ*RJK*RKL*SIJK*SJKL);
+
+				modes[i][3*atomsInModes[i][0]-3] = SIJKL*RIJ1/(CIJKL*pow(SIJK,2)*pow(RIJ,2))+CIJK*SIJKL*RJK1/(CIJKL*pow(SIJK,2)*RIJ*RJK)+(RJK3*RKL2-RJK2*RKL3)/(CIJKL*SIJK*SJKL*RIJ*RJK*RKL);
+				modes[i][3*atomsInModes[i][0]-2] = SIJKL*RIJ2/(CIJKL*pow(SIJK,2)*pow(RIJ,2))+CIJK*SIJKL*RJK2/(CIJKL*pow(SIJK,2)*RIJ*RJK)+(-RJK3*RKL1+RJK1*RKL3)/(CIJKL*SIJK*SJKL*RIJ*RJK*RKL);
+				modes[i][3*atomsInModes[i][0]-1] = SIJKL*RIJ3/(CIJKL*pow(SIJK,2)*pow(RIJ,2))+CIJK*SIJKL*RJK3/(CIJKL*pow(SIJK,2)*RIJ*RJK)+(RJK2*RKL1-RJK1*RKL2)/(CIJKL*SIJK*SJKL*RIJ*RJK*RKL);
+				modes[i][3*atomsInModes[i][1]-3] =-(SIJKL*RIJ1/(CIJKL*pow(SIJK,2)*pow(RIJ,2)))+CIJK*SIJKL*(RIJ1-RJK1)/(CIJKL*pow(SIJK,2)*RIJ*RJK)-SIJKL*RJK1/(CIJKL*pow(RJK,2))+SIJKL*RJK1/(CIJKL*pow(SIJK,2)*pow(RJK,2))+SIJKL*RJK1/(CIJKL*pow(SJKL,2)*pow(RJK,2))+CJKL*SIJKL*RKL1/(CIJKL*pow(SJKL,2)*RJK*RKL)+(-RIJ3*RKL2-RJK3*RKL2+RIJ2*RKL3+RJK2*RKL3)/(CIJKL*SIJK*SJKL*RIJ*RJK*RKL);
+				modes[i][3*atomsInModes[i][1]-2] =-SIJKL*RIJ2/(CIJKL*pow(SIJK,2)*pow(RIJ,2))+CIJK*SIJKL*(RIJ2-RJK2)/(CIJKL*pow(SIJK,2)*RIJ*RJK)-SIJKL*RJK2/(CIJKL*pow(RJK,2))+SIJKL*RJK2/(CIJKL*pow(SIJK,2)*pow(RJK,2))+SIJKL*RJK2/(CIJKL*pow(SJKL,2)*pow(RJK,2))+CJKL*SIJKL*RKL2/(CIJKL*pow(SJKL,2)*RJK*RKL)+(RIJ3*RKL1+RJK3*RKL1-RIJ1*RKL3-RJK1*RKL3)/(CIJKL*SIJK*SJKL*RIJ*RJK*RKL); 
+				modes[i][3*atomsInModes[i][1]-1] =-SIJKL*RIJ3/(CIJKL*pow(SIJK,2)*pow(RIJ,2))+CIJK*SIJKL*(RIJ3-RJK3)/(CIJKL*pow(SIJK,2)*RIJ*RJK)-SIJKL*RJK3/(CIJKL*pow(RJK,2))+SIJKL*RJK3/(CIJKL*pow(SIJK,2)*pow(RJK,2))+SIJKL*RJK3/(CIJKL*pow(SJKL,2)*pow(RJK,2))+(-RIJ2*RKL1-RJK2*RKL1+RIJ1*RKL2+RJK1*RKL2)/(CIJKL*SIJK*SJKL*RIJ*RJK*RKL)+CJKL*SIJKL*RKL3/(CIJKL*pow(SJKL,2)*RJK*RKL);   
+				modes[i][3*atomsInModes[i][2]-3] =-CIJK*SIJKL*RIJ1/(CIJKL*pow(SIJK,2)*RIJ*RJK)+SIJKL*RJK1/(CIJKL*pow(RJK,2))-SIJKL*RJK1/(CIJKL*pow(SIJK,2)*pow(RJK,2))-SIJKL*RJK1/(CIJKL*pow(SJKL,2)*pow(RJK,2))+CJKL*SIJKL*(RJK1-RKL1)/(CIJKL*pow(SJKL,2)*RJK*RKL)+SIJKL*RKL1/(CIJKL*pow(SJKL,2)*pow(RKL,2))+(RIJ3*RJK2-RIJ2*RJK3+RIJ3*RKL2-RIJ2*RKL3)/(CIJKL*SIJK*SJKL*RIJ*RJK*RKL);
+				modes[i][3*atomsInModes[i][2]-2] =-CIJK*SIJKL*RIJ2/(CIJKL*pow(SIJK,2)*RIJ*RJK)+SIJKL*RJK2/(CIJKL*pow(RJK,2))-SIJKL*RJK2/(CIJKL*pow(SIJK,2)*pow(RJK,2))-SIJKL*RJK2/(CIJKL*pow(SJKL,2)*pow(RJK,2))+CJKL*SIJKL*(RJK2-RKL2)/(CIJKL*pow(SJKL,2)*RJK*RKL)+SIJKL*RKL2/(CIJKL*pow(SJKL,2)*pow(RKL,2))+(-RIJ3*RJK1+RIJ1*RJK3-RIJ3*RKL1+RIJ1*RKL3)/(CIJKL*SIJK*SJKL*RIJ*RJK*RKL);
+				modes[i][3*atomsInModes[i][2]-1] =-CIJK*SIJKL*RIJ3/(CIJKL*pow(SIJK,2)*RIJ*RJK)+SIJKL*RJK3/(CIJKL*pow(RJK,2))-SIJKL*RJK3/(CIJKL*pow(SIJK,2)*pow(RJK,2))-SIJKL*RJK3/(CIJKL*pow(SJKL,2)*pow(RJK,2))+(RIJ2*RJK1-RIJ1*RJK2+RIJ2*RKL1-RIJ1*RKL2)/(CIJKL*SIJK*SJKL*RIJ*RJK*RKL)+CJKL*SIJKL*(RJK3-RKL3)/(CIJKL*pow(SJKL,2)*RJK*RKL)+SIJKL*RKL3/(CIJKL*pow(SJKL,2)*pow(RKL,2));
+				modes[i][3*atomsInModes[i][3]-3] =-CJKL*SIJKL*RJK1/(CIJKL*pow(SJKL,2)*RJK*RKL)+(-RIJ3*RJK2+RIJ2*RJK3)/(CIJKL*SIJK*SJKL*RIJ*RJK*RKL)-SIJKL*RKL1/(CIJKL*pow(SJKL,2)*pow(RKL,2)); 
+				modes[i][3*atomsInModes[i][3]-2] =-CJKL*SIJKL*RJK2/(CIJKL*pow(SJKL,2)*RJK*RKL)+(RIJ3*RJK1-RIJ1*RJK3)/(CIJKL*SIJK*SJKL*RIJ*RJK*RKL)-SIJKL*RKL2/(CIJKL*pow(SJKL,2)*pow(RKL,2));
+				modes[i][3*atomsInModes[i][3]-1] =(-RIJ2*RJK1+RIJ1*RJK2)/(CIJKL*SIJK*SJKL*RIJ*RJK*RKL)-CJKL*SIJKL*RJK3/(CIJKL*pow(SJKL,2)*RJK*RKL)-SIJKL*RKL3/(CIJKL*pow(SJKL,2)*pow(RKL,2));
+
+				//printf("%d\t%d\t%d\t%d\t%d\n", i+1, atomsInModes[i][0], atomsInModes[i][1], atomsInModes[i][2], atomsInModes[i][3]);
+				//printf("%f\t%f\t%f\n", coord_I.x(), coord_I.y(), coord_I.z());
+				//printf("%f\t%f\t%f\n", coord_J.x(), coord_J.y(), coord_J.z());
+				//printf("%f\t%f\t%f\n", coord_K.x(), coord_K.y(), coord_K.z());
+				//printf("%f\t%f\t%f\n", coord_L.x(), coord_L.y(), coord_L.z());
+				//printf("%f\t%f\t%f\t%f\n", RIJ1, RIJ2, RIJ3, RIJ);
+				//printf("%f\t%f\t%f\t%f\n", RJK1, RJK2, RJK3, RJK);
+				//printf("%f\t%f\t%f\t%f\n", RKL1, RKL2, RKL3, RKL);
+				//printf("%f\t%f\t%f\n", PIJK, CIJK, SIJK);
+				//printf("%f\t%f\t%f\n", PJKL, CJKL, SJKL);
+				//printf("%f\t%f\n", CIJKL, SIJKL);
+
+				break;
+			default:
+				cerr << "non-tortional modes cannot be recognized because the number of atoms is " << atomsInModes[i].size() << endl;
+				break;
+			}
+		}
+	}
 
   // Export to xmol format.
   void gStructure::exportToXYZ(const char* txt, bool last, PersistPtr ppConfigData){

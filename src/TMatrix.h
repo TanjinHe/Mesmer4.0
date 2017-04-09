@@ -41,6 +41,7 @@ namespace mesmer
 
     //
     // Wrapped calls to EISPACK routines to diagonalise matrix.
+	//	only used for symmetric matrix because of the subroutines called
     //
     void diagonalize(T *rr) {
 
@@ -211,6 +212,84 @@ namespace mesmer
 
   }
 
+  // Matrix mutiplication operator.
+  template<class T>
+  vector<vector<T>> operator*(const vector<vector<T>>& lhs, const TMatrix<T>& rhs) {
+
+	size_t rowsize = lhs.size();
+    size_t msize = lhs[0].size() ;
+    if (rhs.size() != msize) {
+      // Throw error.
+    }
+
+	vector<vector<T>> result(rowsize, vector<T>(msize));
+
+    for (size_t i(0) ; i < rowsize ; i++) {
+      for (size_t j(0) ; j < msize ; j++) {
+        T sm(0.0) ;
+        for (size_t k(0) ; k < msize ; k++) {
+          sm += lhs[i][k]*rhs[k][j] ;
+        }
+        result[i][j] = sm ;
+      }
+    }  
+
+    return result ; // Note result goes via the stack!
+
+  }
+
+    // Matrix mutiplication operator.
+  template<class T>
+  vector<vector<T>> operator*(const TMatrix<T>& lhs, const vector<vector<T>>& rhs) {
+
+    size_t msize = lhs.size() ;
+	size_t colsize = rhs.size();
+    if (rhs.size() != msize) {
+      // Throw error.
+    }
+
+	vector<vector<T>> result(msize, vector<T>(colsize));
+
+    for (size_t i(0) ; i < msize ; i++) {
+      for (size_t j(0) ; j < colsize ; j++) {
+        T sm(0.0) ;
+        for (size_t k(0) ; k < msize ; k++) {
+          sm += lhs[i][k]*rhs[k][j] ;
+        }
+        result[i][j] = sm ;
+      }
+    }  
+
+    return result ; // Note result goes via the stack!
+
+  }
+
+    // Matrix mutiplication operator.
+  template<class T>
+  TMatrix<T> operator*(const vector<vector<T>>& lhs, const vector<vector<T>>& rhs) {
+
+    size_t msize = lhs.size() ;
+	size_t colsize= lhs[0].size();
+    if (rhs.size() != colsize) {
+      // Throw error.
+    }
+
+    TMatrix<T> result(msize) ;
+
+    for (size_t i(0) ; i < msize ; i++) {
+      for (size_t j(0) ; j < msize ; j++) {
+        T sm(0.0) ;
+        for (size_t k(0) ; k < colsize ; k++) {
+          sm += lhs[i][k]*rhs[k][j] ;
+        }
+        result[i][j] = sm ;
+      }
+    }  
+
+    return result ; // Note result goes via the stack!
+
+  }
+
   // Matrix vector mutiplication operator.
   template<class T>
   void operator*=(vector<T>& rhs, const TMatrix<T>& lhs) {
@@ -244,6 +323,10 @@ namespace mesmer
   //   Springer-Verlag, 1976, pp. 489-494.
   //   W H Press et al., Numerical Recipes in C, Cambridge U P,
   //   1988, pp. 373-374.
+//c     this subroutine reduces a real symmetric matrix to a
+//c     symmetric tridiagonal matrix using and accumulating
+//c     orthogonal similarity transformations.
+//		therefore only used for symmetric matrix
   //-------------------------------------------------------------------------------------------
 
   template<class T>

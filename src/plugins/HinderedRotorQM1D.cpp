@@ -111,8 +111,32 @@ namespace mesmer
       bondID = ppDOSC->XmlReadValue("me:bondRef",optional);
     if (!bondID || *bondID=='\0')
     {
-      cerr << "No <bondRef> specified for the hindered rotating bond" <<endl;
-      return false;
+		//add for read non-tortional vibration modes
+		//the description about non-tortional modes should be thelast HinderedTotorQM1D section
+		const char* nonTorModes = ppDOSC->XmlReadValue("me:non-tortional", optional);
+		if(nonTorModes)
+		{
+			vector<vector<double>> modes;
+			gs.nonTortionalVectors(string(nonTorModes), modes);
+			if((modes.size()+gs.NumRotBondIDs()) == (3*gs.NumAtoms()-6) && gdos->hasHessian() && gdos->useNonTorsionMode(modes))
+			{
+				return true;
+			}
+			else
+			{
+				cerr << "Failed to only use non-tortional modes to calculate frequencies." <<endl;
+				return false;		
+			}
+		}
+		else
+		{
+			cerr << "No <bondRef> specified for the hindered rotating bond" <<endl;
+			return false;
+		}
+
+   //   //original code in Mesmer
+	  //cerr << "No <bondRef> specified for the hindered rotating bond" <<endl;
+	  //return false;
     }
 
     // Save rotatable bond ID for calculation of GRIT.
@@ -363,11 +387,11 @@ namespace mesmer
       FourierCosCoeffs(angle, redInvMOI, m_kineticCosCoeff, get_Expansion()) ;
       FourierSinCoeffs(angle, redInvMOI, m_kineticSinCoeff, get_Expansion()) ;
 
-	  printf("%s\n",this->get_BondID().data());
-	  for (int i=0; i<36; i++)
-	  {
-		  printf("angle redInvMOI:\t%f\t%f\n",angle[i],redInvMOI[i]);
-	  }
+	  //printf("%s\n",this->get_BondID().data());
+	  //for (int i=0; i<36; i++)
+	  //{
+		 // printf("angle redInvMOI:\t%f\t%f\n",angle[i],redInvMOI[i]);
+	  //}
     }
 
     // Find maximum quantum No. for rotor. To ensure convergence basis functions 
@@ -378,6 +402,8 @@ namespace mesmer
     double root    = sqrt(double(max(2*MaximumCell,size_t(100000)))/bint) ;
     int kmax       = int(root + 1.0) ;
     size_t nstates = 2*kmax +1 ;
+
+	//ctest<< "rot_bond:\t" << get_BondID() << " nstates:\t" << nstates << " MaximumCell:\t" << MaximumCell << " bint:\t" << bint <<endl;
 
     // Check if sine terms are required and if so use the augmented matrix approach. See NR Sec. 11.4.
 

@@ -157,6 +157,12 @@ namespace mesmer
 	// Add rotatable bond ID (needed to calculate GRIT).
 	void addRotBondID(std::string id) { m_RotBondIDs.push_back(id) ; } ;
 
+	// return the number of rotational bonds
+	int NumRotBondIDs()	{	return m_RotBondIDs.size();}
+
+	//convert the string contain 3n-6-t non-tortional modes to a (3n-6-t)*(3n) matrix, which is a two-dimensional vector for convenience
+	void nonTortionalVectors(std::string modesStr, vector<vector<double>> &modes);
+
     // Export to xmol and CML format.
     void exportToXYZ(const char* txt=NULL, bool last=false, PersistPtr ppConfigData=NULL) ;
     void exportToCML(const char* txt=NULL, bool last=false, PersistPtr ppConfigData=NULL) ;

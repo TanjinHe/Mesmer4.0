@@ -486,7 +486,16 @@ namespace mesmer
       DensityOfStatesCalculator* pDOSCalculator = DensityOfStatesCalculator::Find(dosMethod);
       if (!pDOSCalculator || !pDOSCalculator->ReadParameters(this, pp2))
         return false;
-      m_DOSCalculators.push_back(pDOSCalculator);
+		
+		if(dosMethod == "HinderedRotorQM1D")
+		{
+			const char* addInfo = pp2->XmlReadValue("addInfo", optional);
+			if(addInfo && strcmp(addInfo, "non-tortional")==0)
+			{
+				continue;    
+			}
+		}
+	  m_DOSCalculators.push_back(pDOSCalculator);
     }
 
     //Check there is only one <me:DOSCMethod>
@@ -1102,6 +1111,162 @@ namespace mesmer
     m_VibFreq.clear();
     for (i = msize - nfreq + 1; i < msize; i++)
       m_VibFreq.push_back(freqs[i]);
+
+    return status;
+  }
+
+  // This method is used to use non-torsional modes only from the stored Hessian and
+  // re-calculate the remaining frequencies.
+  bool gDensityOfStates::useNonTorsionMode(vector<vector<double>> &modes) {
+
+	int l;
+	double tmp_num;
+
+    bool status(true);
+
+    const size_t msize = m_Hessian->size();
+
+    gStructure& gs = m_host->getStruc();
+    vector<double> atomicMasses;
+    gs.getAtomicMasses(atomicMasses);
+
+    size_t i, j, k;
+    vector<double> massWeights(msize, 0.0);
+	for(l=0; l < modes.size(); l++)
+	{
+		for (j = 0, i = 0; j < atomicMasses.size(); j++) {
+		  double weight = sqrt(atomicMasses[j]);
+		  for (k = 0; k < 3; k++, i++) {
+			modes[l][i] /= weight;
+		  }
+		}
+	}
+
+	// note: msize == modes[0].size()
+	l = modes.size();
+
+	////transpose modes, which is [o_1; o_2; ...]
+	//vector<vector<double>> modesTrans(modes[0].size(), vector<double>(modes.size()));
+	//for(i=0; i < modes[0].size(); i++)
+	//{
+	//	for(j=0; j<modes.size(); j++)
+	//	{
+	//		modesTrans[i][j] = modes[j][i];
+	//	}
+	//}
+
+	// Apply the Gram-Schmidt procedure to orthogonalize the modes matrix.
+	vector<vector<double>> normalizedModes(modes);
+	vector<vector<double>> normalizedModesTrans(msize, vector<double>(l, 0.0));
+	for(i=0; i < l; i++)
+	{
+		//project vector i to vector j, and remove the projection
+		for(j=0; j < i; j++)
+		{
+			tmp_num = 0.0;
+			for(k=0; k < msize; k++)
+			{
+				tmp_num += normalizedModes[i][k] * normalizedModes[j][k];			
+			}
+			for(k=0; k < msize; k++)
+			{
+				normalizedModes[i][k] -= tmp_num*normalizedModes[j][k];
+			}			
+		}
+		//normalize vector i
+		tmp_num = 0.0;
+		for(k=0; k < msize; k++)
+		{
+			tmp_num += normalizedModes[i][k]*normalizedModes[i][k];
+		}
+		tmp_num = sqrt(tmp_num);
+		for(k=0; k < msize; k++)
+		{
+			normalizedModes[i][k] /= tmp_num;
+			normalizedModesTrans[k][i] = normalizedModes[i][k];
+		}
+	}
+
+	//ctest << "normalizedModes" << endl;
+	//for(i=0;i<l;i++)
+	//{
+	//	for(j=0; j < msize; j++)
+	//	{
+	//		ctest << normalizedModes[i][j] << "    ";
+	//	}
+	//	ctest << endl;
+	//}	
+
+
+	// project in non-torsional modes
+	// c=b*u^1/2=b*m*(-1/2)=a*O
+	// u={1/mii}=1/m
+	// tmpHessian=GF=c*m_Hessian*c^(-1)=c*m_Hessian*cT*(c*cT)^(-1)=a*O*m_Hessian*OT*a^(-1)
+	// eig(tmpHessian) = eig(O*m_Hessian*OT) (|M-lambda*I|==0 <=> |a*M*a^(-1)-lambda*I|==0)
+	// b = {mode1T; mode2T;...}(3n-6-t)*3n
+	// c is not square matrix, (3n-6-t)*3n, but c*cT is, (3n-6-t)*(3n-6-t)
+	// O is normalizedModes, which is normalized from the weighted moded c, {normalWeightMode1T; normalWeightMode2T;...}(3n-6-t)*3n
+	// a is the coefficients in the Gram-Schmidt procedure, (3n-6-t)*(3n-6-t)
+	// m_Hessian is mass weighted hessian {Hij/sqrt(mi*mj)}
+
+    ////dMatrix tmpHessian = modes*(*m_Hessian)*modesTrans;
+	//ctest << "m_Hessian" << endl;
+	//for(i=0;i < msize;i++)
+	//{
+	//	for(j=0; j < msize; j++)
+	//	{
+	//		ctest << (*m_Hessian)[i][j] << "    ";
+	//	}
+	//	ctest << endl;
+	//}
+    dMatrix tmpHessian = normalizedModes*(*m_Hessian)*normalizedModesTrans;
+	//ctest << "tmpHessian = modes*(*m_Hessian)*modesTrans, which is equivalent to bm*u*fc*u*bmT" << endl;
+	//for(i=0;i<l;i++)
+	//{
+	//	for(j=0; j < l; j++)
+	//	{
+	//		ctest << tmpHessian[i][j] << "    ";
+	//	}
+	//	ctest << endl;
+	//}
+
+	//dMatrix tmpCCT = modes*modesTrans;
+	//tmpCCT.invertLUdecomposition();
+	//tmpHessian = tmpHessian*tmpCCT;
+
+	vector<double> freqs(l, 0.0);
+    tmpHessian.diagonalize(&freqs[0]);
+
+    double convFactor = conHess2Freq / (2.0*M_PI);
+    for (i = 0; i < l; i++) 
+	{
+		if (freqs[i] > 0.0) 
+		{
+			freqs[i] = convFactor*sqrt(freqs[i]);
+		}
+		else
+		{
+			freqs[i] = -convFactor*sqrt(abs(freqs[i]));
+			ctest << "A negative frequency found for non-tortional mode! " << endl;
+		}
+	}
+
+	ctest << "freqs" << endl;
+	for(i=0;i<l;i++)
+	{
+		ctest << freqs[i] << endl;
+	}
+	ctest << endl;
+
+    // Save projected frequencies.
+    m_VibFreq.clear();
+    for (i = 0; i < l; i++)
+	{
+		if(freqs[i] > 0.0)
+		{
+			m_VibFreq.push_back(freqs[i]);		
+		}
+	}
 
     return status;
   }
