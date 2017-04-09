@@ -214,7 +214,7 @@ namespace mesmer
 
   // Matrix mutiplication operator.
   template<class T>
-  vector<vector<T>> operator*(const vector<vector<T>>& lhs, const TMatrix<T>& rhs) {
+  vector< vector<T> > operator*(const vector< vector<T> >& lhs, const TMatrix<T>& rhs) {
 
 	size_t rowsize = lhs.size();
     size_t msize = lhs[0].size() ;
@@ -222,7 +222,7 @@ namespace mesmer
       // Throw error.
     }
 
-	vector<vector<T>> result(rowsize, vector<T>(msize));
+	vector< vector<T> > result(rowsize, vector<T>(msize));
 
     for (size_t i(0) ; i < rowsize ; i++) {
       for (size_t j(0) ; j < msize ; j++) {
@@ -240,7 +240,7 @@ namespace mesmer
 
     // Matrix mutiplication operator.
   template<class T>
-  vector<vector<T>> operator*(const TMatrix<T>& lhs, const vector<vector<T>>& rhs) {
+  vector< vector<T> > operator*(const TMatrix<T>& lhs, const vector< vector<T> >& rhs) {
 
     size_t msize = lhs.size() ;
 	size_t colsize = rhs.size();
@@ -248,7 +248,7 @@ namespace mesmer
       // Throw error.
     }
 
-	vector<vector<T>> result(msize, vector<T>(colsize));
+	vector< vector<T> > result(msize, vector<T>(colsize));
 
     for (size_t i(0) ; i < msize ; i++) {
       for (size_t j(0) ; j < colsize ; j++) {
@@ -266,7 +266,7 @@ namespace mesmer
 
     // Matrix mutiplication operator.
   template<class T>
-  TMatrix<T> operator*(const vector<vector<T>>& lhs, const vector<vector<T>>& rhs) {
+  TMatrix<T> operator*(const vector< vector<T> >& lhs, const vector< vector<T> >& rhs) {
 
     size_t msize = lhs.size() ;
 	size_t colsize= lhs[0].size();

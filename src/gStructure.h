@@ -161,7 +161,7 @@ namespace mesmer
 	int NumRotBondIDs()	{	return m_RotBondIDs.size();}
 
 	//convert the string contain 3n-6-t non-tortional modes to a (3n-6-t)*(3n) matrix, which is a two-dimensional vector for convenience
-	void nonTortionalVectors(std::string modesStr, vector<vector<double>> &modes);
+	void nonTortionalVectors(std::string modesStr, vector< vector<double> > &modes);
 
     // Export to xmol and CML format.
     void exportToXYZ(const char* txt=NULL, bool last=false, PersistPtr ppConfigData=NULL) ;

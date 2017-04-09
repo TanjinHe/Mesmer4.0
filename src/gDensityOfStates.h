@@ -137,7 +137,7 @@ namespace mesmer
   // This method is used to use non-torsional modes only from the stored Hessian and
   // re-calculate the remaining frequencies.
 
-	bool gDensityOfStates::useNonTorsionMode(vector<vector<double>> &modes);
+	bool useNonTorsionMode(vector< vector<double> > &modes);
 
     // This method tests if a rotor is heavy. It is a helper method
 	// used to assess if a QM method will be expensive for calculating

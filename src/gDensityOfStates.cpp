@@ -1117,7 +1117,7 @@ namespace mesmer
 
   // This method is used to use non-torsional modes only from the stored Hessian and
   // re-calculate the remaining frequencies.
-  bool gDensityOfStates::useNonTorsionMode(vector<vector<double>> &modes) {
+  bool gDensityOfStates::useNonTorsionMode(vector< vector<double> > &modes) {
 
 	int l;
 	double tmp_num;
@@ -1156,8 +1156,8 @@ namespace mesmer
 	//}
 
 	// Apply the Gram-Schmidt procedure to orthogonalize the modes matrix.
-	vector<vector<double>> normalizedModes(modes);
-	vector<vector<double>> normalizedModesTrans(msize, vector<double>(l, 0.0));
+	vector< vector<double> > normalizedModes(modes);
+	vector< vector<double> > normalizedModesTrans(msize, vector<double>(l, 0.0));
 	for(i=0; i < l; i++)
 	{
 		//project vector i to vector j, and remove the projection

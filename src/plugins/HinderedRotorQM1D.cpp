@@ -116,7 +116,7 @@ namespace mesmer
 		const char* nonTorModes = ppDOSC->XmlReadValue("me:non-tortional", optional);
 		if(nonTorModes)
 		{
-			vector<vector<double>> modes;
+			vector< vector<double> > modes;
 			gs.nonTortionalVectors(string(nonTorModes), modes);
 			if((modes.size()+gs.NumRotBondIDs()) == (3*gs.NumAtoms()-6) && gdos->hasHessian() && gdos->useNonTorsionMode(modes))
 			{

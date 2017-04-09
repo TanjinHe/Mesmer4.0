@@ -862,10 +862,10 @@ namespace mesmer
   }
 
 	//convert the string contain 3n-6-t non-tortional modes to a (3n-6-t)*(3n) matrix, which is a two-dimensional vector for convenience
-	void gStructure::nonTortionalVectors(std::string modesStr, vector<vector<double>> &modes)
+	void gStructure::nonTortionalVectors(std::string modesStr, vector< vector<double> > &modes)
 	{
 		int i,j;
-		vector<vector<int>> atomsInModes;
+		vector< vector<int> > atomsInModes;
 		OpenBabel::vector3 coord_I, coord_J, coord_K, coord_L;
 		double RIJ1,RIJ2,RIJ3,RJK1,RJK2,RJK3,RKL1,RKL2,RKL3,RIJ,RJK,RKL,PIJK,CIJK,SIJK,PJKL,CJKL,SJKL,CIJKL,SIJKL;
 
@@ -925,7 +925,7 @@ namespace mesmer
 		//}
 
 		//convert the info about label of atoms in modes to vectors about vibration modes 
-		modes = vector<vector<double>>(atomsInModes.size(), vector<double>(3*NumAtoms(), 0.0));
+		modes = vector< vector<double> >(atomsInModes.size(), vector<double>(3*NumAtoms(), 0.0));
 		//details follows to assign values in modes
 		for(i=0; i < atomsInModes.size(); i++)
 		{
